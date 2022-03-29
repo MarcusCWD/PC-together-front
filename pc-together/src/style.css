@@ -1,0 +1,14 @@
+.notice-color {
+    background-color: #3c3c3c;
+    color: #fff;
+  }
+
+.image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.font-card {
+  font-size: 12px;
+}
