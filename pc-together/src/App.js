@@ -84,14 +84,15 @@ class App extends React.Component {
             </nav>
             <div className="row">
                 {/* filter col */}
-                <div className="col-2">
+                <div className="col-3">
 
                 </div>
 
                 {/* main card listings */}
-                <div className="col-10 row">
+                <div className="col-9 row">
                         <ReadBuild
                         data = {this.state.buildList}
+        
                         /> 
                 </div>
             </div>

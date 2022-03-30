@@ -12,3 +12,16 @@
 .font-card {
   font-size: 12px;
 }
+
+.fixed-height-card {
+  height: 50px
+}
+
+.upvote-image-size {
+  height: 20px
+}
+
+.upvote-font-size {
+  font-size: 12px
+}
+
