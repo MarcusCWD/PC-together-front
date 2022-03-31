@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function ReadBuild(props) {
+
     let arrStore= []
     for(let build of props.data.mainList){
         let mainCpuId = build.parts.cpu_id
@@ -19,9 +20,12 @@ export default function ReadBuild(props) {
                 break;
             }
         }
-        console.log(build.votes)
         arrStore.push(
-            <div className="card p-0 mb-2 mx-1" style={{width: "18rem"}}>
+            <div className="card p-0 mb-2 mx-1" style={{width: "18rem"}} 
+                onClick={ ()=> {
+                props.changePage("individual")
+                props.currentIndividual(build._id)
+            }}>
                 <img src={build.image} className="card-img-top image" alt="pc image"/>
                 <div className="card-body">
                     <h6 className="card-title fixed-height-card">{build.name}</h6>

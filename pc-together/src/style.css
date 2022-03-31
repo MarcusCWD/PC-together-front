@@ -25,3 +25,11 @@
   font-size: 12px
 }
 
+.filter-bg {
+  background-color: rgb(248,249,250);
+}
+
+.hr-color {
+  border: 0.8px solid #131313;
+}
+
