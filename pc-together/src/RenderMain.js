@@ -2,11 +2,12 @@ import React from "react";
 import ReadBuild from "./ReadBuild";
 
 export default function RenderMain(props) {
-    return(
-        <React.Fragment>
+  return (
+    <React.Fragment>
+      <div style={{ overflowX: "hidden" }}>
         <nav className="announcement ft-6 notice-color text-center">
-          Submit your custom build and stand a chance to win our 2022 give away (end
-          1st June)
+          Submit your custom build and stand a chance to win our 2022 give away
+          (end 1st June)
         </nav>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
@@ -27,7 +28,10 @@ export default function RenderMain(props) {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
@@ -142,12 +146,19 @@ export default function RenderMain(props) {
               Search and Filter
             </button>
           </div>
-    
+
           {/* main card listings */}
-          <div className="col-9 row">
-            <ReadBuild data={props.data} changePage={props.changePage} currentIndividual={props.currentIndividual}/>
+          <div className="col-9">
+            <div className="row">
+              <ReadBuild
+              data={props.data}
+              currentIndividual={props.currentIndividual}
+            />
+            </div>
+            
           </div>
         </div>
-      </React.Fragment>
-    )
+      </div>
+    </React.Fragment>
+  );
 }

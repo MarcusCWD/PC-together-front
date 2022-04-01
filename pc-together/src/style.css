@@ -9,6 +9,17 @@
   background-position: center;
 }
 
+.image-individual-part {
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+}
+.image-individual-img {
+  height:500px;
+  background-size: cover;
+  background-position: center;
+}
+
 .font-card {
   font-size: 12px;
 }
@@ -32,4 +43,3 @@
 .hr-color {
   border: 0.8px solid #131313;
 }
-
