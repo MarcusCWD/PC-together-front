@@ -149,7 +149,7 @@ export default function RenderMain(props) {
 
           {/* main card listings */}
           <div className="col-9">
-            <div className="row">
+            <div className="d-flex flex-wrap">
               <ReadBuild
               data={props.data}
               currentIndividual={props.currentIndividual}

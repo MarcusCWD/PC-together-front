@@ -10,12 +10,10 @@
 }
 
 .image-individual-part {
-  height: 50px;
-  background-size: cover;
-  background-position: center;
+  height: 80px;
 }
 .image-individual-img {
-  height:500px;
+  height:600px;
   background-size: cover;
   background-position: center;
 }
@@ -37,9 +35,14 @@
 }
 
 .filter-bg {
-  background-color: rgb(248,249,250);
+  background-color: "#f0f2f5";
 }
 
 .hr-color {
   border: 0.8px solid #131313;
 }
+.card-width {
+  
+width: 180px
+}
+

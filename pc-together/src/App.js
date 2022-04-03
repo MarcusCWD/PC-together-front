@@ -5,7 +5,7 @@ import RenderMain from "./RenderMain";
 import Individual from "./Individual";
 
 const BASE_URL =
-  "https://3001-marcuscwd-pctogether-ttdq0bbnux0.ws-us38.gitpod.io";
+  "https://3000-marcuscwd-pctogether-ttdq0bbnux0.ws-us38.gitpod.io";
 // "https://pc-together.herokuapp.com/"
 
 class App extends React.Component {
