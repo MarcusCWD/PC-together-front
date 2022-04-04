@@ -22,7 +22,7 @@ export default function ReadBuild(props) {
         }
         arrStore.push(
             <React.Fragment>
-                <div className="col-lg-4 col-xl-3">
+                <div className="col-md-5 col-lg-4 col-xl-3">
                     <button className="card p-0 mb-2 mx-1"
                         onClick={ ()=> {
                         props.currentIndividual(build._id)

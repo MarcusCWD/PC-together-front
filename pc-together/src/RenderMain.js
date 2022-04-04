@@ -35,26 +35,6 @@ export default function RenderMain(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
-                    CPU
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    GPU
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Mother Board
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    RAM
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
                     Submit New Build
                   </a>
                 </li>
@@ -79,77 +59,67 @@ export default function RenderMain(props) {
             <div className="fs-4">Filter</div>
             <hr className="hr-color"></hr>
             <div className="filter-bg p-3">
-              <label for="customRange2" className="form-label">
+              <label className="form-label">
                 Price Range
               </label>
-              <input
-                type="range"
-                className="form-range"
-                min="200"
-                max="7000"
-                id="customRange2"
-              />
+              {/* price from 500-999 */}
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                <label className="form-check-label" for="flexRadioDefault1">
+                  500-999 
+                </label>
+              </div>
+              {/* price from 1000-1799 */}
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                <label className="form-check-label" for="flexRadioDefault1">
+                  1000-1799
+                </label>
+              </div>
+              {/* price from 1800-2499 */}
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                <label className="form-check-label" for="flexRadioDefault1">
+                  1800-2499
+                </label>
+              </div>
+              {/* price from 2500 onwards */}
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                <label className="form-check-label" for="flexRadioDefault1">
+                  2500 onwards
+                </label>
+              </div>
             </div>
             {/* CPU TYPE */}
             <div className="p-3">
               <div className="form-label">CPU type</div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox1"
-                  value="option1"
-                />
-                <label className="form-check-label" for="inlineCheckbox1">
-                  AMD
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label className="form-check-label" for="inlineCheckbox2">
-                  INTEL
-                </label>
-              </div>
+              <input className="form-check-input" type="checkbox" name="cpu" value="amd"
+                  checked={props.cpuFilterArr.includes("amd")}
+                  onChange={props.updateCpu}/>AMD
+              <input className="form-check-input" type="checkbox" name="cpu" value="intel"
+                  checked={props.cpuFilterArr.includes("intel")}
+                  onChange={props.updateCpu}/>Intel
             </div>
             {/* GPU TYPE */}
             <div className="p-3">
               <div className="form-label">GPU type</div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox1"
-                  value="option1"
-                />
-                <label className="form-check-label" for="inlineCheckbox1">
-                  NVIDIA
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="inlineCheckbox2"
-                  value="option2"
-                />
-                <label className="form-check-label" for="inlineCheckbox2">
-                  AMD
-                </label>
-              </div>
+              <input className="form-check-input" type="checkbox" name="gpu" value="nvidia"
+                  checked={props.gpuFilterArr.includes("nvidia")}
+                  onChange={props.updateGpu}/>Nvidia
+              <input className="form-check-input" type="checkbox" name="gpu" value="amd"
+                  checked={props.gpuFilterArr.includes("amd")}
+                  onChange={props.updateGpu}/>AMD
             </div>
-            <button type="button" className="btn btn-primary p-3">
+    
+            <button type="button" className="btn btn-primary p-3" onClick={props.updateSearch}>
               Search and Filter
             </button>
           </div>
 
           {/* main card listings */}
           <div className="col-9">
-            <div className="d-flex flex-wrap">
+            <div className="row">
               <ReadBuild
               data={props.data}
               currentIndividual={props.currentIndividual}

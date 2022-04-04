@@ -14,7 +14,9 @@ class App extends React.Component {
     loaded: false,
     buildList: [],
     pageTracker: "main",
-    individualList: []
+    individualList: [],
+    cpuFilterArr: [],
+    gpuFilterArr: [],
   };
   // end state
 
@@ -29,14 +31,69 @@ class App extends React.Component {
     });
   };
   currentIndividual = async (buildId) => {
-    let individualRequest = axios.get(BASE_URL + '/' + buildId + '/individualbuild');
+    let individualRequest = axios.get(
+      BASE_URL + "/" + buildId + "/individualbuild"
+    );
     let individualResponse = await individualRequest;
     this.setState({
       individualList: individualResponse.data,
-      pageTracker: "individual"
+      pageTracker: "individual",
     });
   };
-
+  updateSearch = async () => {
+    // let searchRequest = axios.get(BASE_URL + '/' + '?' + 'cpu_brand' + '=' + this.state.cpuFilterArr)
+    // console.log(this.state.cpuFilterArr)
+    let queryString = {
+      params : { 
+        cpu_brand_name : this.state.cpuFilterArr,
+        gpu_brand_name : this.state.gpuFilterArr
+      }
+    }
+    // let queryString2 = {
+    //   params : { gpu_brand_name : this.state.gpuFilterArr}
+    // }
+    let searchRequest = axios.get(BASE_URL + "/build/search", queryString);
+    let searchResponse = await searchRequest;
+    this.setState({
+      buildList: searchResponse.data
+    });
+  };
+  updateCpu = (e) => {
+    if (this.state.cpuFilterArr.includes(e.target.value)) {
+      let indexToRemove = this.state.cpuFilterArr.findIndex(
+        (cpu) => cpu === e.target.value
+      );
+      let clone = [
+        ...this.state.cpuFilterArr.slice(0, indexToRemove),
+        ...this.state.cpuFilterArr.slice(indexToRemove + 1),
+      ];
+      this.setState({
+        cpuFilterArr: clone,
+      });
+    } else {
+      this.setState({
+        cpuFilterArr: [...this.state.cpuFilterArr, e.target.value],
+      });
+    }
+  };
+  updateGpu = (e) => {
+    if (this.state.gpuFilterArr.includes(e.target.value)) {
+      let indexToRemove = this.state.gpuFilterArr.findIndex(
+        (gpu) => gpu === e.target.value
+      );
+      let clone = [
+        ...this.state.gpuFilterArr.slice(0, indexToRemove),
+        ...this.state.gpuFilterArr.slice(indexToRemove + 1),
+      ];
+      this.setState({
+        gpuFilterArr: clone,
+      });
+    } else {
+      this.setState({
+        gpuFilterArr: [...this.state.gpuFilterArr, e.target.value],
+      });
+    }
+  };
   async componentDidMount() {
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
@@ -47,22 +104,22 @@ class App extends React.Component {
     });
   }
   initialMain() {
-    if ((this.state.loaded === true) && (this.state.pageTracker === "main")) {
+    if (this.state.loaded === true && this.state.pageTracker === "main") {
       return (
         <RenderMain
           data={this.state.buildList}
           currentIndividual={this.currentIndividual}
+          updateCpu={this.updateCpu}
+          updateGpu={this.updateGpu}
+          cpuFilterArr={this.state.cpuFilterArr}
+          gpuFilterArr={this.state.gpuFilterArr}
+          updateSearch={this.updateSearch}
         />
       );
     }
     if (this.state.pageTracker === "individual") {
-      return(
-        <Individual
-          individualList={this.state.individualList}
-        />
-      )
-    } 
-    else {
+      return <Individual individualList={this.state.individualList} />;
+    } else {
       <React.Fragment>Loading, please wait...</React.Fragment>;
     }
   }

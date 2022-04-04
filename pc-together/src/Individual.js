@@ -58,26 +58,6 @@ export default function Individual(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
-                    CPU
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    GPU
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Mother Board
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    RAM
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
                     Submit New Build
                   </a>
                 </li>
@@ -99,7 +79,7 @@ export default function Individual(props) {
         <div>
           {/* name of the build */}
           <div
-            className="d-flex justify-content-center"
+            className="d-flex justify-content-center text-white"
             style={{ backgroundColor: "#E26723", height: "120px" }}
           >
             <div className="display-6 text-center" style={{ width: "600px" }}>
@@ -119,12 +99,12 @@ export default function Individual(props) {
             {/* upvote, description*/}
             <div className="col-4">
               {/* description */}
-              <div className="p-3">
+              <div className="p-3 masked-overflow" style={{height:"450px", overflow:"auto" }}>
                 <div className="fs-5">Description</div>
                 <div>{props.individualList.mainList[0].description}</div>
               </div>
-
-              <div className="row d-flex py-4">
+              {/* upvote and build ease */}
+              <div className="row d-flex pt-4">
                 <div className="col-4">
                   <img
                     src="/images/arrow-up.png"
@@ -152,9 +132,9 @@ export default function Individual(props) {
           </div>
           {/* Parts used */}
           <div style={{backgroundColor:"#F8F9FA"}}>
-            <div className="display-6 ml-3 mr-3 mb-3 d-line d-flex">Parts and prices</div>
-            <div className="fs-5 fw-bold m-3 d-line d-flex">USD {props.individualList.mainList[0].price}</div>
-            <div className="row m-2 pt-5">
+            <div className="display-6 py-3 mx-3 d-line d-flex">Parts and prices</div>
+            <div className="fs-5 fw-bold m-3 d-line d-flex">Bundled cost: USD {props.individualList.mainList[0].price}</div>
+            <div className="row mx-2 pt-5">
               {/* CPU */}
               <div className="col-3">
                 <div className="col ">
@@ -208,28 +188,38 @@ export default function Individual(props) {
 
           </div>
           {/* comments */}
-          <div className="row d-flex justify-content-center">
-            <div className="col-10">
+          <div className="row d-flex justify-content-center" style={{ backgroundColor: "#E26723" }}>
+            <div className="col-10 py-5">
               <div
                 className="card shadow-0 border"
                 style={{ backgroundColor: "#f0f2f5" }}
               >
+                <div className="display-6 m-3">Community comments</div>
                 {comments()}
                 <div className="card-body p-4">
-                  <div className="display-6">Comments? Enter here</div>
-                  <div className="form-outline mb-4">
+                  <div className="display-6 p-1">Comments? </div>
+                  <div className="form-outline">
+                    
                     <input
                       type="text"
                       id="addANote"
                       className="form-control"
                       placeholder="Type comment..."
                     />
+                    <div className="py-2"></div>
+                    <input
+                      type="text"
+                      id="addANote"
+                      className="form-control"
+                      placeholder="enter email..."
+                    />
                     <button type="button" className="btn btn-primary p-3 mt-3">
-                      Search and Filter
+                      Confirm comment
                     </button>
                   </div>
                 </div>
               </div>
+              <a className="hover">Need to edit listing? Click here.</a>
             </div>
           </div>
         </div>
