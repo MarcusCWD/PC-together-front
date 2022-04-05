@@ -17,6 +17,7 @@ class App extends React.Component {
     individualList: [],
     cpuFilterArr: [],
     gpuFilterArr: [],
+    priceRadio: []
   };
   // end state
 
@@ -25,6 +26,16 @@ class App extends React.Component {
       [e.target.name]: e.target.value,
     });
   };
+  updateFormFieldRadio = (e) => {
+    if (this.state.priceRadio !== e.target.value) {
+       this.setState({
+      [e.target.name]: e.target.value,
+    });} else {
+      this.setState({
+        [e.target.name]: [],
+    })
+  };}
+
   changePage = (page) => {
     this.setState({
       pageTracker: page,
@@ -41,18 +52,14 @@ class App extends React.Component {
     });
   };
   updateSearch = async () => {
-    // let searchRequest = axios.get(BASE_URL + '/' + '?' + 'cpu_brand' + '=' + this.state.cpuFilterArr)
-    // console.log(this.state.cpuFilterArr)
     let queryString = {
       params : { 
         cpu_brand_name : this.state.cpuFilterArr,
-        gpu_brand_name : this.state.gpuFilterArr
+        gpu_brand_name : this.state.gpuFilterArr,
+        price_search : this.state.priceRadio
       }
     }
-    // let queryString2 = {
-    //   params : { gpu_brand_name : this.state.gpuFilterArr}
-    // }
-    let searchRequest = axios.get(BASE_URL + "/build/search", queryString);
+    let searchRequest = axios.get(BASE_URL + "/filter", queryString);
     let searchResponse = await searchRequest;
     this.setState({
       buildList: searchResponse.data
@@ -114,6 +121,9 @@ class App extends React.Component {
           cpuFilterArr={this.state.cpuFilterArr}
           gpuFilterArr={this.state.gpuFilterArr}
           updateSearch={this.updateSearch}
+          priceRadio={this.state.priceRadio}
+          updateFormField={this.updateFormField}
+          updateFormFieldRadio={this.updateFormFieldRadio}
         />
       );
     }
