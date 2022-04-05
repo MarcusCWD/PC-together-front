@@ -3,6 +3,7 @@ import axios from "axios";
 import "./style.css";
 import RenderMain from "./RenderMain";
 import Individual from "./Individual";
+import NewBuild from "./NewBuild";
 
 const BASE_URL =
   "https://3000-marcuscwd-pctogether-ttdq0bbnux0.ws-us38.gitpod.io";
@@ -17,7 +18,17 @@ class App extends React.Component {
     individualList: [],
     cpuFilterArr: [],
     gpuFilterArr: [],
-    priceRadio: []
+    priceRadio: [],
+    newParts: [],
+    trackCpu: "",
+    trackGpu: "",
+    trackMobo: "",
+    trackRam: "",
+    buildName: "",
+    buildEmail: "",
+    buildURL: "",
+    buildRate: "",
+    buildDescription: "",
   };
   // end state
 
@@ -28,14 +39,15 @@ class App extends React.Component {
   };
   updateFormFieldRadio = (e) => {
     if (this.state.priceRadio !== e.target.value) {
-       this.setState({
-      [e.target.name]: e.target.value,
-    });} else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    } else {
       this.setState({
         [e.target.name]: [],
-    })
-  };}
-
+      });
+    }
+  };
   changePage = (page) => {
     this.setState({
       pageTracker: page,
@@ -53,16 +65,16 @@ class App extends React.Component {
   };
   updateSearch = async () => {
     let queryString = {
-      params : { 
-        cpu_brand_name : this.state.cpuFilterArr,
-        gpu_brand_name : this.state.gpuFilterArr,
-        price_search : this.state.priceRadio
-      }
-    }
+      params: {
+        cpu_brand_name: this.state.cpuFilterArr,
+        gpu_brand_name: this.state.gpuFilterArr,
+        price_search: this.state.priceRadio,
+      },
+    };
     let searchRequest = axios.get(BASE_URL + "/filter", queryString);
     let searchResponse = await searchRequest;
     this.setState({
-      buildList: searchResponse.data
+      buildList: searchResponse.data,
     });
   };
   updateCpu = (e) => {
@@ -101,6 +113,54 @@ class App extends React.Component {
       });
     }
   };
+  newBuild = async () => {
+    let partRequest = axios.get(BASE_URL + "/newbuild");
+    let partResponse = await partRequest;
+    this.setState({
+      pageTracker: "newbuild",
+      newParts: partResponse.data,
+    });
+  };
+  renderCpu = () => {
+    let cpuOptions = this.state.newParts.cpuItem.map(function (eachCpu) {
+      return <option value={eachCpu._id}>{eachCpu.product_name}</option>;
+    });
+    return cpuOptions;
+  };
+  renderGpu = () => {
+    let gpuOptions = this.state.newParts.gpuItem.map(function (eachGpu) {
+      return <option value={eachGpu._id}>{eachGpu.product_name}</option>;
+    });
+    return gpuOptions;
+  };
+  renderMobo = () => {
+    let moboOptions = this.state.newParts.moboItem.map(function (eachMobo) {
+      return <option value={eachMobo._id}>{eachMobo.product_name}</option>;
+    });
+    return moboOptions;
+  };
+  renderRam = () => {
+    let ramOptions = this.state.newParts.ramItem.map(function (eachRam) {
+      return <option value={eachRam._id}>{eachRam.product_name}</option>;
+    });
+    return ramOptions;
+  };
+  submitBuild = async () => {
+    let submitBuildResponse = await axios.post(BASE_URL + "/newbuild", {
+      name: this.state.buildName,
+      build_ease: this.state.buildRate ,
+      image: this.state.buildURL,
+      description: this.state.buildDescription,
+      email: this.state.buildEmail,
+            
+      cpu: this.state.trackCpu, 
+      gpu: this.state.trackGpu,
+      mobo: this.state.trackMobo,
+      ram: this.state.trackRam
+      
+  })
+  console.log(submitBuildResponse)
+  };
   async componentDidMount() {
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
@@ -124,11 +184,31 @@ class App extends React.Component {
           priceRadio={this.state.priceRadio}
           updateFormField={this.updateFormField}
           updateFormFieldRadio={this.updateFormFieldRadio}
+          newBuild={this.newBuild}
         />
       );
-    }
-    if (this.state.pageTracker === "individual") {
+    } else if (this.state.pageTracker === "individual") {
       return <Individual individualList={this.state.individualList} />;
+    } else if (this.state.pageTracker === "newbuild") {
+      return (
+        <NewBuild
+          renderCpu={this.renderCpu}
+          renderGpu={this.renderGpu}
+          renderMobo={this.renderMobo}
+          renderRam={this.renderRam}
+          updateFormField={this.updateFormField}
+          trackCpu={this.state.trackCpu}
+          trackGpu={this.state.trackGpu}
+          trackMobo={this.state.trackMobo}
+          trackRam={this.state.trackRam}
+          buildName={this.state.buildName}
+          buildEmail={this.state.buildEmail}
+          buildURL={this.state.buildURL}
+          buildRate={this.state.buildRate}
+          buildDescription={this.state.buildDescription}
+          submitBuild={this.submitBuild}
+        />
+      );
     } else {
       <React.Fragment>Loading, please wait...</React.Fragment>;
     }

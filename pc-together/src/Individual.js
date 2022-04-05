@@ -37,7 +37,7 @@ export default function Individual(props) {
             <a href="index.html">
               <img src="/images/pc-tower.png" style={{ width: "80px" }} />
             </a>
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="index.html">
               PC-together
             </a>
             <button

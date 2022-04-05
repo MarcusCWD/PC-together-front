@@ -14,7 +14,7 @@ export default function RenderMain(props) {
             <a href="index.html">
               <img src="/images/pc-tower.png" style={{ width: "80px" }} />
             </a>
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="index.html">
               PC-together
             </a>
             <button
@@ -34,7 +34,7 @@ export default function RenderMain(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <a className="nav-link active" aria-current="page" onClick={props.newBuild}>
                     Submit New Build
                   </a>
                 </li>
