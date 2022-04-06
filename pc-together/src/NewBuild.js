@@ -18,7 +18,7 @@ export default function NewBuild(props) {
       </nav>
       
       {/* <div className="row"> */}
-        <div className="display-6 text-center" style={{ backgroundColor: "#E26723", height:"80px" }}>Submit Build form</div>
+        <div className="display-6 text-center" style={{ backgroundColor: "#E26723", height:"80px" }}>Submit Build Form</div>
         {/* <div className="col-3"></div> */}
         <div style={{ backgroundColor:"#F8F9FA", width:"100%" }}>
           <div>
@@ -152,8 +152,6 @@ export default function NewBuild(props) {
             </button>
           </div>
         </div>
-        {/* <div className="col-3"></div> */}
-      {/* </div> */}
     </React.Fragment>
   );
 }

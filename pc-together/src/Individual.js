@@ -57,7 +57,11 @@ export default function Individual(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    onClick={props.newBuild}
+                  >
                     Submit New Build
                   </a>
                 </li>
@@ -99,7 +103,10 @@ export default function Individual(props) {
             {/* upvote, description*/}
             <div className="col-4">
               {/* description */}
-              <div className="p-3 masked-overflow" style={{height:"450px", overflow:"auto" }}>
+              <div
+                className="p-3 masked-overflow"
+                style={{ height: "450px", overflow: "auto" }}
+              >
                 <div className="fs-5">Description</div>
                 <div>{props.individualList.mainList[0].description}</div>
               </div>
@@ -114,7 +121,9 @@ export default function Individual(props) {
                   <p className="fs-6 d-inline px-1 fw-bold">
                     {props.individualList.mainList[0].votes}
                   </p>
-                  <p style={{ fontSize: "15px" }}>Like what you see? Upvote here!</p>
+                  <p style={{ fontSize: "15px" }}>
+                    Like what you see? Upvote here!
+                  </p>
                 </div>
                 <div className="col-4">
                   <img
@@ -131,64 +140,69 @@ export default function Individual(props) {
             </div>
           </div>
           {/* Parts used */}
-          <div style={{backgroundColor:"#F8F9FA"}}>
-            <div className="display-6 py-3 mx-3 d-line d-flex">Parts and prices</div>
-            <div className="fs-5 fw-bold m-3 d-line d-flex">Bundled cost: USD {props.individualList.mainList[0].price}</div>
+          <div style={{ backgroundColor: "#F8F9FA" }}>
+            <div className="display-6 py-3 mx-3 d-line d-flex">
+              Parts and prices
+            </div>
+            <div className="fs-5 fw-bold m-3 d-line d-flex">
+              Bundled cost: USD {props.individualList.mainList[0].price}
+            </div>
             <div className="row mx-2 pt-5">
               {/* CPU */}
               <div className="col-3">
                 <div className="col ">
                   <img
-                  src={props.individualList.cpuItem[0].image}
-                  className="image-individual-part"
-                  alt="cpu"
-                />
-                <p>{props.individualList.cpuItem[0].product_name}</p>
-                <p>USD {props.individualList.cpuItem[0].price}</p>
-                </div>
-                
-              </div>
-               {/* GPU */}
-               <div className="col-3">
-               <div className="col ">
-                <img
-                  src={props.individualList.gpuItem[0].image}
-                  className="image-individual-part"
-                  alt="gpu"
-                />
-                <p>{props.individualList.gpuItem[0].product_name}</p>
-                <p>USD {props.individualList.gpuItem[0].price}</p>
+                    src={props.individualList.cpuItem[0].image}
+                    className="image-individual-part"
+                    alt="cpu"
+                  />
+                  <p>{props.individualList.cpuItem[0].product_name}</p>
+                  <p>USD {props.individualList.cpuItem[0].price}</p>
                 </div>
               </div>
-               {/* MOBO */}
-               <div className="col-3">
-               <div className="col ">
-                <img
-                  src={props.individualList.moboItem[0].image}
-                  className="image-individual-part"
-                  alt="motherboard"
-                />
-                <p>{props.individualList.moboItem[0].product_name}</p>
-                <p>USD {props.individualList.moboItem[0].price}</p>
+              {/* GPU */}
+              <div className="col-3">
+                <div className="col ">
+                  <img
+                    src={props.individualList.gpuItem[0].image}
+                    className="image-individual-part"
+                    alt="gpu"
+                  />
+                  <p>{props.individualList.gpuItem[0].product_name}</p>
+                  <p>USD {props.individualList.gpuItem[0].price}</p>
                 </div>
               </div>
-               {/* ram */}
-               <div className="col-3">
-               <div className="col ">
-                <img
-                  src={props.individualList.ramItem[0].image}
-                  className="image-individual-part"
-                  alt="ram"
-                />
-                <p>{props.individualList.ramItem[0].product_name}</p>
-                <p>USD {props.individualList.ramItem[0].price}</p>
-              </div>   
-              </div>   
+              {/* MOBO */}
+              <div className="col-3">
+                <div className="col ">
+                  <img
+                    src={props.individualList.moboItem[0].image}
+                    className="image-individual-part"
+                    alt="motherboard"
+                  />
+                  <p>{props.individualList.moboItem[0].product_name}</p>
+                  <p>USD {props.individualList.moboItem[0].price}</p>
+                </div>
+              </div>
+              {/* ram */}
+              <div className="col-3">
+                <div className="col ">
+                  <img
+                    src={props.individualList.ramItem[0].image}
+                    className="image-individual-part"
+                    alt="ram"
+                  />
+                  <p>{props.individualList.ramItem[0].product_name}</p>
+                  <p>USD {props.individualList.ramItem[0].price}</p>
+                </div>
+              </div>
             </div>
-
           </div>
           {/* comments */}
-          <div className="row d-flex justify-content-center" style={{ backgroundColor: "#E26723" }}>
+          <div
+            className="row d-flex justify-content-center"
+            style={{ backgroundColor: "#E26723" }}
+          >
             <div className="col-10 py-5">
               <div
                 className="card shadow-0 border"
@@ -199,13 +213,12 @@ export default function Individual(props) {
                 <div className="card-body p-4">
                   <div className="display-6 p-1">Comments? </div>
                   <div className="form-outline">
-                    
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Type comment..."
-                      value={props.commentComment}
-                      name="commentComment"
+                      placeholder="Name here..."
+                      value={props.commentName}
+                      name="commentName"
                       onChange={props.updateFormField}
                     />
                     <div className="py-2"></div>
@@ -217,13 +230,42 @@ export default function Individual(props) {
                       name="commentEmail"
                       onChange={props.updateFormField}
                     />
-                    <button type="button" className="btn btn-primary p-3 mt-3" onClick={props.submitComment}>
-                      Confirm comment
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      placeholder="enter comment..."
+                      value={props.commentComment}
+                      name="commentComment"
+                      onChange={props.updateFormField}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-primary p-3 mt-3"
+                      onClick={props.submitComment}
+                    >
+                      Submit comment
                     </button>
                   </div>
                 </div>
               </div>
-              <a className="hover">Need to edit listing? Click here.</a>
+              <div className="edit-part">
+                Need to edit listing? Enter Valid creator's email here.
+                <input
+                  type="text"
+                  className="form-control "
+                  placeholder="enter email..."
+                  value={props.creatorEmail}
+                  name="creatorEmail"
+                  onChange={props.updateFormField}
+                />
+                <button
+                  type="button"
+                  className="btn btn-primary p-1 mt-3"
+                  onClick={props.submitEditEmail}
+                >
+                  Edit Build
+                </button>
+              </div>
             </div>
           </div>
         </div>

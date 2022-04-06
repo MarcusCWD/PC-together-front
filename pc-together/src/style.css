@@ -1,3 +1,4 @@
+
 .notice-color {
     background-color: #3c3c3c;
     color: #fff;
@@ -44,10 +45,8 @@
 .card-width {
   width: 180px
 }
-.hover:hover{
-  text-decoration: underline;
-  text-decoration-color: blue;
-  color: blue;
+.edit-part{
+  margin-top: 200px;
 }
 
 .masked-overflow {
@@ -117,4 +116,28 @@ scroll gradient in the top right */
 }
 .drop-down-label-width{
   width: 180px
+}
+a.nostyle {
+  text-decoration: inherit;
+  color: inherit;
+
+}
+a.nostyle {
+  text-decoration: inherit;
+
+}
+
+
+
+
+
+.card-listing {
+  max-width: 250px;
+}
+
+@media screen and (min-width:768px) {
+  .card-listing {
+   
+    max-width: 300px;
+  }
 }

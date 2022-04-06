@@ -4,6 +4,7 @@ import "./style.css";
 import RenderMain from "./RenderMain";
 import Individual from "./Individual";
 import NewBuild from "./NewBuild";
+import EditBuild from "./EditBuild";
 
 const BASE_URL =
   "https://3000-marcuscwd-pctogether-ttdq0bbnux0.ws-us38.gitpod.io";
@@ -30,7 +31,9 @@ class App extends React.Component {
     buildRate: "",
     buildDescription: "",
     commentComment:"",
-    commentEmail:""
+    commentEmail:"",
+    commentName:"",
+    creatorEmail:""
   };
   // end state
 
@@ -159,19 +162,82 @@ class App extends React.Component {
       gpu: this.state.trackGpu,
       mobo: this.state.trackMobo,
       ram: this.state.trackRam
-      
   })
-  console.log(submitBuildResponse)
-  };
+  let buildRequest = axios.get(BASE_URL + "/build");
+  let buildResponse = await buildRequest;
+  this.setState({
+    buildList: buildResponse.data,
+    pageTracker: "main",
+  });
+}
+
   submitComment = async ()=> {
-    let partRequest = axios.get(BASE_URL + "/newbuild");
-    let partResponse = await partRequest;
+    let locationId = this.state.individualList.mainList[0]._id
+    let submitComment = await axios.post(BASE_URL + "/" + locationId +"/comment" , {
+      name: this.state.commentName,
+      comment: this.state.commentComment ,
+      email: this.state.commentEmail,
+    })
+    let individualRequest = axios.get(
+      BASE_URL + "/" + locationId + "/individualbuild"
+    );
+    let individualResponse = await individualRequest;
     this.setState({
-      pageTracker: "newbuild",
-      newParts: partResponse.data,
+      individualList: individualResponse.data,
+      commentName: "",
+      commentComment:"",
+      commentEmail:""
+    });
+  };
+  submitEditEmail = async()=>{
+    console.log("is submiteditemail hapenenig?")
+    let locationId = this.state.individualList.mainList[0]._id
+    let email = this.state.creatorEmail
+    let emailResponse= await axios.get(BASE_URL + "/" + locationId + "/" + email +"/email");
+    let emailData = emailResponse.data
+    if (emailData.email_check == true){
+      let partRequest = axios.get(BASE_URL + "/newbuild");
+      let partResponse = await partRequest;
+      this.setState({
+        pageTracker: "edit",
+        newParts: partResponse.data,
+        buildName: this.state.individualList.mainList[0].name,
+        buildURL: this.state.individualList.mainList[0].image,
+        buildRate: this.state.individualList.mainList[0].build_ease,
+        buildDescription: this.state.individualList.mainList[0].description,
+        trackCpu: this.state.individualList.mainList[0].parts.cpu_id,
+        trackGpu: this.state.individualList.mainList[0].parts.gpu_id,
+        trackMobo: this.state.individualList.mainList[0].parts.mobo_id,
+        trackRam: this.state.individualList.mainList[0].parts.ram_id,
+
+      });
+    }
+  }
+  editBuild = async()=>{
+    let locationId = this.state.individualList.mainList[0]._id
+    console.log(locationId)
+    console.log(BASE_URL + "/" + locationId +"/edit")
+    let editBuild = await axios.put(BASE_URL + "/" + locationId +"/edit" , {
+      name: this.state.buildName,
+      build_ease: this.state.buildRate ,
+      image: this.state.buildURL,
+      description: this.state.buildDescription,
+            
+      cpu: this.state.trackCpu, 
+      gpu: this.state.trackGpu,
+      mobo: this.state.trackMobo,
+      ram: this.state.trackRam
+    })
+    let buildRequest = axios.get(BASE_URL + "/build");
+    let buildResponse = await buildRequest;
+    this.setState({
+      buildList: buildResponse.data,
+      pageTracker: "main",
     });
   }
+
   async componentDidMount() {
+    console.log("COMPONENETDIDMOUNT")
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
     this.setState({
@@ -201,10 +267,14 @@ class App extends React.Component {
       return (
         <Individual
           individualList={this.state.individualList}
+          newBuild={this.newBuild}
           submitComment={this.submitComment}
           commentEmail={this.state.commentEmail}
           commentComment={this.state.commentComment}
+          commentName={this.state.commentName}
           updateFormField={this.updateFormField}
+          submitEditEmail={this.submitEditEmail}
+          creatorEmail={this.state.creatorEmail}
           />
       );
       
@@ -228,7 +298,29 @@ class App extends React.Component {
           submitBuild={this.submitBuild}
         />
       );
-    } else {
+    }
+    else if (this.state.pageTracker === "edit"){
+      return(
+        <EditBuild
+        
+        renderCpu={this.renderCpu}
+        renderGpu={this.renderGpu}
+        renderMobo={this.renderMobo}
+        renderRam={this.renderRam}
+        updateFormField={this.updateFormField}
+        trackCpu={this.state.trackCpu}
+        trackGpu={this.state.trackGpu}
+        trackMobo={this.state.trackMobo}
+        trackRam={this.state.trackRam}
+        buildName={this.state.buildName}
+        buildURL={this.state.buildURL}
+        buildRate={this.state.buildRate}
+        buildDescription={this.state.buildDescription}
+        editBuild={this.editBuild}
+        />
+      ) 
+    }
+    else {
       <React.Fragment>Loading, please wait...</React.Fragment>;
     }
   }
