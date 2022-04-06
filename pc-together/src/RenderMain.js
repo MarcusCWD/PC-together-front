@@ -151,7 +151,7 @@ export default function RenderMain(props) {
 
           {/* main card listings */}
           <div className="col-9">
-            <div className="row">
+            <div className="row justify-content-around custom-sizing">
               <ReadBuild
               data={props.data}
               currentIndividual={props.currentIndividual}

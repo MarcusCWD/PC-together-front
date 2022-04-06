@@ -202,18 +202,22 @@ export default function Individual(props) {
                     
                     <input
                       type="text"
-                      id="addANote"
                       className="form-control"
                       placeholder="Type comment..."
+                      value={props.commentComment}
+                      name="commentComment"
+                      onChange={props.updateFormField}
                     />
                     <div className="py-2"></div>
                     <input
                       type="text"
-                      id="addANote"
                       className="form-control"
                       placeholder="enter email..."
+                      value={props.commentEmail}
+                      name="commentEmail"
+                      onChange={props.updateFormField}
                     />
-                    <button type="button" className="btn btn-primary p-3 mt-3">
+                    <button type="button" className="btn btn-primary p-3 mt-3" onClick={props.submitComment}>
                       Confirm comment
                     </button>
                   </div>

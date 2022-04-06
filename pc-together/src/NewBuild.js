@@ -16,121 +16,144 @@ export default function NewBuild(props) {
           </a>
         </div>
       </nav>
-      <div className="row">
-        <div className="col-5" style={{ backgroundColor: "grey" }}>
-          {/* CPU dropdown list */}
+      
+      {/* <div className="row"> */}
+        <div className="display-6 text-center" style={{ backgroundColor: "#E26723", height:"80px" }}>Submit Build form</div>
+        {/* <div className="col-3"></div> */}
+        <div style={{ backgroundColor:"#F8F9FA", width:"100%" }}>
           <div>
-            <label>CPU Select:</label>
-            <select
-              value={props.trackCpu} //state trackCpu
-              name="trackCpu" // trackCpu
-              onChange={props.updateFormField} // update state, {trackCpu : 'ryzen 5 5600x'}
-            >
-              <option></option>
-              {props.renderCpu()}
-            </select>
+            {/* CPU dropdown list */}
+            <div className="p-2">
+              <label className="drop-down-label-width">CPU Select:</label>
+              <select
+                value={props.trackCpu} //state trackCpu
+                name="trackCpu" // trackCpu
+                onChange={props.updateFormField} // update state, {trackCpu : 'ryzen 5 5600x'}
+                className="drop-down-width"
+              >
+                <option></option>
+                {props.renderCpu()}
+              </select>
+            </div>
+            {/* GPU dropdown list */}
+            <div className="p-2">
+              <label className="drop-down-label-width">GPU Select:</label>
+              <select
+                value={props.trackGpu}
+                name="trackGpu"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              >
+                <option></option>
+                {props.renderGpu()}
+              </select>
+            </div>
+            {/* MOBO dropdown list */}
+            <div className="p-2">
+              <label className="drop-down-label-width">Mobo Select:</label>
+              <select
+                value={props.trackMobo}
+                name="trackMobo"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              >
+                <option></option>
+                {props.renderMobo()}
+              </select>
+            </div>
+            {/* RAM dropdown list */}
+            <div className="p-2">
+              <label className="drop-down-label-width">RAM Select:</label>
+              <select
+                value={props.trackRam}
+                name="trackRam"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              >
+                <option></option>
+                {props.renderRam()}
+              </select>
+            </div>
           </div>
-          {/* GPU dropdown list */}
-          <div>
-            <label>GPU Select:</label>
-            <select
-              value={props.trackGpu}
-              name="trackGpu"
-              onChange={props.updateFormField}
+          {/* Fill in listing name, user email, build img link, build ease, description of build */}
+          <div className="pt-5">
+            <div className="p-2">
+              <label className="drop-down-label-width">Build's Name:</label>
+              <input
+                type="text"
+                value={props.buildName}
+                name="buildName"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              />
+            </div>
+            <div className="p-2">
+              <label className="drop-down-label-width">
+                Build's Image URL:
+              </label>
+              <input
+                type="text"
+                value={props.buildURL}
+                name="buildURL"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              />
+            </div>
+            <div className="p-2">
+              <label className="drop-down-label-width">
+                Submitter's User Email
+              </label>
+              <input
+                type="text"
+                value={props.buildEmail}
+                name="buildEmail"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              />
+            </div>
+            <div className="p-2">
+              <label className="drop-down-label-width">Build Ease Rating</label>
+              <select
+                value={props.buildRate}
+                name="buildRate"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+              >
+                <option></option>
+                <option value={5.0}>5.0</option>
+                <option value={4.5}>4.5</option>
+                <option value={4.0}>4.0</option>
+                <option value={3.5}>3.5</option>
+                <option value={3.0}>3.0</option>
+                <option value={2.5}>2.5</option>
+                <option value={2.0}>2.0</option>
+                <option value={1.5}>1.5</option>
+                <option value={1.0}>1.0</option>
+                <option value={0.5}>0.5</option>
+                <option value={0.0}>0.0</option>
+              </select>
+            </div>
+            <div className="p-2">
+              <label className="drop-down-label-width">Build description</label>
+              <textarea
+                value={props.buildDescription}
+                name="buildDescription"
+                onChange={props.updateFormField}
+                className="drop-down-width"
+                rows="4"
+              />
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary p-3 m-3"
+              onClick={props.submitBuild}
             >
-              <option></option>
-              {props.renderGpu()}
-            </select>
-          </div>
-          {/* MOBO dropdown list */}
-          <div>
-            <label>Mobo Select:</label>
-            <select
-              value={props.trackMobo}
-              name="trackMobo"
-              onChange={props.updateFormField}
-            >
-              <option></option>
-              {props.renderMobo()}
-            </select>
-          </div>
-          {/* RAM dropdown list */}
-          <div>
-            <label>RAM Select:</label>
-            <select
-              value={props.trackRam}
-              name="trackRam"
-              onChange={props.updateFormField}
-            >
-              <option></option>
-              {props.renderRam()}
-            </select>
+              Submit
+            </button>
           </div>
         </div>
-        {/* Fill in listing name, user email, build img link, build ease, description of build */}
-        <div className="col-7" style={{ backgroundColor: "orange" }}>
-          <div>
-            <label>Build's Name:</label>
-            <input
-              type="text"
-              value={props.buildName}
-              name="buildName"
-              onChange={props.updateFormField}
-            />
-          </div>
-          <div>
-            <label>Build's Image URL:</label>
-            <input
-              type="text"
-              value={props.buildURL}
-              name="buildURL"
-              onChange={props.updateFormField}
-            />
-          </div>
-          <div>
-            <label>Submitter's User Email</label>
-            <input
-              type="text"
-              value={props.buildEmail}
-              name="buildEmail"
-              onChange={props.updateFormField}
-            />
-          </div>
-          <div>
-            <label>Build Ease Rating</label>
-            <select
-              value={props.buildRate}
-              name="buildRate"
-              onChange={props.updateFormField}
-            >
-              <option></option>
-              <option value={5.0}>5.0</option>
-              <option value={4.5}>4.5</option>
-              <option value={4.0}>4.0</option>
-              <option value={3.5}>3.5</option>
-              <option value={3.0}>3.0</option>
-              <option value={2.5}>2.5</option>
-              <option value={2.0}>2.0</option>
-              <option value={1.5}>1.5</option>
-              <option value={1.0}>1.0</option>
-              <option value={0.5}>0.5</option>
-              <option value={0.0}>0.0</option>
-            </select>
-          </div>
-          <div>
-            <label>Build description</label>
-            <input
-              type="text"
-              value={props.buildDescription}
-              name="buildDescription"
-              onChange={props.updateFormField}
-            />
-          </div>
-          <button type="button" className="btn btn-primary p-3" onClick={props.submitBuild}>
-              Search and Filter
-          </button>
-        </div>
-      </div>
+        {/* <div className="col-3"></div> */}
+      {/* </div> */}
     </React.Fragment>
   );
 }

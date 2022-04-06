@@ -103,3 +103,18 @@ scroll gradient in the top right */
   /* We don't repeat our mask images */
   mask-repeat: no-repeat, no-repeat;
 }
+
+/* 
+@media only screen and (max-width: 992px) {
+ .custom-sizing {
+   
+ }
+   
+} */
+
+.drop-down-width{
+  width:250px
+}
+.drop-down-label-width{
+  width: 180px
+}

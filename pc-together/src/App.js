@@ -29,6 +29,8 @@ class App extends React.Component {
     buildURL: "",
     buildRate: "",
     buildDescription: "",
+    commentComment:"",
+    commentEmail:""
   };
   // end state
 
@@ -161,6 +163,14 @@ class App extends React.Component {
   })
   console.log(submitBuildResponse)
   };
+  submitComment = async ()=> {
+    let partRequest = axios.get(BASE_URL + "/newbuild");
+    let partResponse = await partRequest;
+    this.setState({
+      pageTracker: "newbuild",
+      newParts: partResponse.data,
+    });
+  }
   async componentDidMount() {
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
@@ -188,7 +198,16 @@ class App extends React.Component {
         />
       );
     } else if (this.state.pageTracker === "individual") {
-      return <Individual individualList={this.state.individualList} />;
+      return (
+        <Individual
+          individualList={this.state.individualList}
+          submitComment={this.submitComment}
+          commentEmail={this.state.commentEmail}
+          commentComment={this.state.commentComment}
+          updateFormField={this.updateFormField}
+          />
+      );
+      
     } else if (this.state.pageTracker === "newbuild") {
       return (
         <NewBuild
