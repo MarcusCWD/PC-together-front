@@ -30,10 +30,10 @@ class App extends React.Component {
     buildURL: "",
     buildRate: "",
     buildDescription: "",
-    commentComment:"",
-    commentEmail:"",
-    commentName:"",
-    creatorEmail:""
+    commentComment: "",
+    commentEmail: "",
+    commentName: "",
+    creatorEmail: "",
   };
   // end state
 
@@ -153,31 +153,34 @@ class App extends React.Component {
   submitBuild = async () => {
     let submitBuildResponse = await axios.post(BASE_URL + "/newbuild", {
       name: this.state.buildName,
-      build_ease: this.state.buildRate ,
+      build_ease: this.state.buildRate,
       image: this.state.buildURL,
       description: this.state.buildDescription,
       email: this.state.buildEmail,
-            
-      cpu: this.state.trackCpu, 
+
+      cpu: this.state.trackCpu,
       gpu: this.state.trackGpu,
       mobo: this.state.trackMobo,
-      ram: this.state.trackRam
-  })
-  let buildRequest = axios.get(BASE_URL + "/build");
-  let buildResponse = await buildRequest;
-  this.setState({
-    buildList: buildResponse.data,
-    pageTracker: "main",
-  });
-}
+      ram: this.state.trackRam,
+    });
+    let buildRequest = axios.get(BASE_URL + "/build");
+    let buildResponse = await buildRequest;
+    this.setState({
+      buildList: buildResponse.data,
+      pageTracker: "main",
+    });
+  };
 
-  submitComment = async ()=> {
-    let locationId = this.state.individualList.mainList[0]._id
-    let submitComment = await axios.post(BASE_URL + "/" + locationId +"/comment" , {
-      name: this.state.commentName,
-      comment: this.state.commentComment ,
-      email: this.state.commentEmail,
-    })
+  submitComment = async () => {
+    let locationId = this.state.individualList.mainList[0]._id;
+    let submitComment = await axios.post(
+      BASE_URL + "/" + locationId + "/comment",
+      {
+        name: this.state.commentName,
+        comment: this.state.commentComment,
+        email: this.state.commentEmail,
+      }
+    );
     let individualRequest = axios.get(
       BASE_URL + "/" + locationId + "/individualbuild"
     );
@@ -185,17 +188,18 @@ class App extends React.Component {
     this.setState({
       individualList: individualResponse.data,
       commentName: "",
-      commentComment:"",
-      commentEmail:""
+      commentComment: "",
+      commentEmail: "",
     });
   };
-  submitEditEmail = async()=>{
-    console.log("is submiteditemail hapenenig?")
-    let locationId = this.state.individualList.mainList[0]._id
-    let email = this.state.creatorEmail
-    let emailResponse= await axios.get(BASE_URL + "/" + locationId + "/" + email +"/email");
-    let emailData = emailResponse.data
-    if (emailData.email_check == true){
+  submitEditEmail = async () => {
+    let locationId = this.state.individualList.mainList[0]._id;
+    let email = this.state.creatorEmail;
+    let emailResponse = await axios.get(
+      BASE_URL + "/" + locationId + "/" + email + "/email"
+    );
+    let emailData = emailResponse.data;
+    if (emailData.email_check == true) {
       let partRequest = axios.get(BASE_URL + "/newbuild");
       let partResponse = await partRequest;
       this.setState({
@@ -209,35 +213,64 @@ class App extends React.Component {
         trackGpu: this.state.individualList.mainList[0].parts.gpu_id,
         trackMobo: this.state.individualList.mainList[0].parts.mobo_id,
         trackRam: this.state.individualList.mainList[0].parts.ram_id,
-
       });
     }
-  }
-  editBuild = async()=>{
-    let locationId = this.state.individualList.mainList[0]._id
-    console.log(locationId)
-    console.log(BASE_URL + "/" + locationId +"/edit")
-    let editBuild = await axios.put(BASE_URL + "/" + locationId +"/edit" , {
+  };
+  editBuild = async () => {
+    let locationId = this.state.individualList.mainList[0]._id;
+    console.log(BASE_URL + "/" + locationId + "/edit");
+    let editBuild = await axios.put(BASE_URL + "/" + locationId + "/edit", {
       name: this.state.buildName,
-      build_ease: this.state.buildRate ,
+      build_ease: this.state.buildRate,
       image: this.state.buildURL,
       description: this.state.buildDescription,
-            
-      cpu: this.state.trackCpu, 
+
+      cpu: this.state.trackCpu,
       gpu: this.state.trackGpu,
       mobo: this.state.trackMobo,
-      ram: this.state.trackRam
-    })
+      ram: this.state.trackRam,
+    });
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
     this.setState({
       buildList: buildResponse.data,
       pageTracker: "main",
     });
-  }
+  };
+  deleteBuild = async () => {
+    let locationId = this.state.individualList.mainList[0]._id;
+    console.log(BASE_URL + "/" + locationId + "/delete");
+    let deleteBuild = await axios.delete(
+      BASE_URL + "/" + locationId + "/delete",
+      {
+        _id: locationId,
+        build: locationId,
+      }
+    );
+    let buildRequest = axios.get(BASE_URL + "/build");
+    let buildResponse = await buildRequest;
+    this.setState({
+      buildList: buildResponse.data,
+      pageTracker: "main",
+    });
+  };
+  upVote = async () => {
+    let locationId = this.state.individualList.mainList[0]._id;
+    console.log(BASE_URL + "/" + locationId + "/upvote");
+    let upvote = await axios.patch(BASE_URL + "/" + locationId + "/voteup", {
+      _id: locationId,
+    });
 
+    let individualRequest = axios.get(
+      BASE_URL + "/" + locationId + "/individualbuild"
+    );
+    let individualResponse = await individualRequest;
+    this.setState({
+      individualList: individualResponse.data,
+    })
+  }
   async componentDidMount() {
-    console.log("COMPONENETDIDMOUNT")
+    console.log("COMPONENETDIDMOUNT");
     let buildRequest = axios.get(BASE_URL + "/build");
     let buildResponse = await buildRequest;
     this.setState({
@@ -275,9 +308,9 @@ class App extends React.Component {
           updateFormField={this.updateFormField}
           submitEditEmail={this.submitEditEmail}
           creatorEmail={this.state.creatorEmail}
-          />
+          upVote={this.upVote}
+        />
       );
-      
     } else if (this.state.pageTracker === "newbuild") {
       return (
         <NewBuild
@@ -298,29 +331,27 @@ class App extends React.Component {
           submitBuild={this.submitBuild}
         />
       );
-    }
-    else if (this.state.pageTracker === "edit"){
-      return(
+    } else if (this.state.pageTracker === "edit") {
+      return (
         <EditBuild
-        
-        renderCpu={this.renderCpu}
-        renderGpu={this.renderGpu}
-        renderMobo={this.renderMobo}
-        renderRam={this.renderRam}
-        updateFormField={this.updateFormField}
-        trackCpu={this.state.trackCpu}
-        trackGpu={this.state.trackGpu}
-        trackMobo={this.state.trackMobo}
-        trackRam={this.state.trackRam}
-        buildName={this.state.buildName}
-        buildURL={this.state.buildURL}
-        buildRate={this.state.buildRate}
-        buildDescription={this.state.buildDescription}
-        editBuild={this.editBuild}
+          renderCpu={this.renderCpu}
+          renderGpu={this.renderGpu}
+          renderMobo={this.renderMobo}
+          renderRam={this.renderRam}
+          updateFormField={this.updateFormField}
+          trackCpu={this.state.trackCpu}
+          trackGpu={this.state.trackGpu}
+          trackMobo={this.state.trackMobo}
+          trackRam={this.state.trackRam}
+          buildName={this.state.buildName}
+          buildURL={this.state.buildURL}
+          buildRate={this.state.buildRate}
+          buildDescription={this.state.buildDescription}
+          editBuild={this.editBuild}
+          deleteBuild={this.deleteBuild}
         />
-      ) 
-    }
-    else {
+      );
+    } else {
       <React.Fragment>Loading, please wait...</React.Fragment>;
     }
   }

@@ -112,7 +112,7 @@ export default function Individual(props) {
               </div>
               {/* upvote and build ease */}
               <div className="row d-flex pt-4">
-                <div className="col-4">
+                <a className="col-4" onClick={props.upVote}>
                   <img
                     src="/images/arrow-up.png"
                     style={{ height: "50px" }}
@@ -124,7 +124,7 @@ export default function Individual(props) {
                   <p style={{ fontSize: "15px" }}>
                     Like what you see? Upvote here!
                   </p>
-                </div>
+                </a>
                 <div className="col-4">
                   <img
                     src="/images/tools.png"
