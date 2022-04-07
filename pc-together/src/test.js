@@ -1,123 +1,119 @@
-{/* <div className="row"> */}
-<div className="display-6 text-center" style={{ backgroundColor: "#E26723", height:"80px" }}>Edit Build</div>
-{/* <div className="col-3"></div> */}
-<div style={{ backgroundColor:"#F8F9FA", width:"100%" }}>
-  <div>
-    {/* CPU dropdown list */}
-    <div className="p-2">
-      <label className="drop-down-label-width">CPU Select:</label>
-      <select
-        value={props.trackCpu} //state trackCpu
-        name="trackCpu" // trackCpu
-        onChange={props.updateFormField} // update state, {trackCpu : 'ryzen 5 5600x'}
-        className="drop-down-width"
-      >
-        <option value={props.current_idCpu}>{props.currentProduct_nameCpu}</option>
-        {props.renderCpu()}
-      </select>
-    </div>
-    {/* GPU dropdown list */}
-    <div className="p-2">
-      <label className="drop-down-label-width">GPU Select:</label>
-      <select
-        value={props.trackGpu}
-        name="trackGpu"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      >
-         <option value={props.current_idGpu}>{props.currentProduct_nameGpu}</option>
-        {props.renderGpu()}
-      </select>
-    </div>
-    {/* MOBO dropdown list */}
-    <div className="p-2">
-      <label className="drop-down-label-width">Mobo Select:</label>
-      <select
-        value={props.trackMobo}
-        name="trackMobo"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      >
-        <option value={props.current_idMobo}>{props.currentProduct_nameMobo}</option>
-        {props.renderMobo()}
-      </select>
-    </div>
-    {/* RAM dropdown list */}
-    <div className="p-2">
-      <label className="drop-down-label-width">RAM Select:</label>
-      <select
-        value={props.trackRam}
-        name="trackRam"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      >
-         <option value={props.current_idRam}>{props.currentProduct_nameRam}</option>
-        {props.renderRam()}
-      </select>
-    </div>
+<div className="remove-when-md p-4 filter-bg">
+<div className="fs-4">Filter</div>
+<hr className="hr-color"></hr>
+<div className="filter-bg p-3">
+  <label className="form-label">Price Range</label>
+  {/* price from 500-999 */}
+  <div className="form-check">
+    <input
+      type="radio"
+      value={500}
+      name="priceRadio"
+      checked={props.priceRadio === "500"}
+      onClick={props.updateFormFieldRadio}
+      id="price500"
+      className="form-check-input"
+    />
+    <label className="form-check-label" for="price500">
+      500-999
+    </label>
   </div>
-  {/* Fill in listing name, user email, build img link, build ease, description of build */}
-  <div className="pt-5">
-    <div className="p-2">
-      <label className="drop-down-label-width">Build's Name:</label>
-      <input
-        type="text"
-        value={props.buildName}
-        name="buildName"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      />
-    </div>
-    <div className="p-2">
-      <label className="drop-down-label-width">
-        Build's Image URL:
-      </label>
-      <input
-        type="text"
-        value={props.buildURL}
-        name="buildURL"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      />
-    </div>
-    <div className="p-2">
-      <label className="drop-down-label-width">Build Ease Rating</label>
-      <select
-        value={props.buildRate}
-        name="buildRate"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-      >
-        <option></option>
-        <option value={5.0}>5.0</option>
-        <option value={4.5}>4.5</option>
-        <option value={4.0}>4.0</option>
-        <option value={3.5}>3.5</option>
-        <option value={3.0}>3.0</option>
-        <option value={2.5}>2.5</option>
-        <option value={2.0}>2.0</option>
-        <option value={1.5}>1.5</option>
-        <option value={1.0}>1.0</option>
-        <option value={0.5}>0.5</option>
-        <option value={0.0}>0.0</option>
-      </select>
-    </div>
-    <div className="p-2">
-      <label className="drop-down-label-width">Build description</label>
-      <textarea
-        value={props.buildDescription}
-        name="buildDescription"
-        onChange={props.updateFormField}
-        className="drop-down-width"
-        rows="4"
-      />
-    </div>
-    <button
-      type="button"
-      className="btn btn-primary p-3 m-3"
-      onClick={props.editBuild}
-    >
-      Submit Edited Build
-    </button>
+  {/* price from 1000-1499 */}
+  <div className="form-check">
+    <input
+      type="radio"
+      value={1000}
+      name="priceRadio"
+      checked={props.priceRadio === "1000"}
+      onClick={props.updateFormFieldRadio}
+      id="price1000"
+      className="form-check-input"
+    />
+    <label className="form-check-label" for="price1000">
+      1000-1499
+    </label>
   </div>
+  {/* price from 1500-1999 */}
+  <div className="form-check">
+    <input
+      type="radio"
+      value={1500}
+      name="priceRadio"
+      checked={props.priceRadio === "1500"}
+      onClick={props.updateFormFieldRadio}
+      id="price1500"
+      className="form-check-input"
+    />
+    <label className="form-check-label" for="price1500">
+      1500-1999
+    </label>
+  </div>
+  {/* price from 2000 onwards */}
+  <div className="form-check">
+    <input
+      type="radio"
+      value={2000}
+      name="priceRadio"
+      checked={props.priceRadio === "2000"}
+      onClick={props.updateFormFieldRadio}
+      id="price1500"
+      className="form-check-input"
+    />
+    <label className="form-check-label" for="price2000">
+      2000
+    </label>
+  </div>
+</div>
+{/* CPU TYPE */}
+<div className="p-3">
+  <div className="form-label">CPU type</div>
+  <input
+    className="form-check-input m-1"
+    type="checkbox"
+    name="cpu"
+    value="amd"
+    checked={props.cpuFilterArr.includes("amd")}
+    onChange={props.updateCpu}
+  />
+  AMD
+  <input
+    className="form-check-input m-1"
+    type="checkbox"
+    name="cpu"
+    value="intel"
+    checked={props.cpuFilterArr.includes("intel")}
+    onChange={props.updateCpu}
+  />
+  Intel
+</div>
+{/* GPU TYPE */}
+<div className="p-3">
+  <div className="form-label">GPU type</div>
+  <input
+    className="form-check-input m-1"
+    type="checkbox"
+    name="gpu"
+    value="nvidia"
+    checked={props.gpuFilterArr.includes("nvidia")}
+    onChange={props.updateGpu}
+  />
+  Nvidia
+  <input
+    className="form-check-input m-1"
+    type="checkbox"
+    name="gpu"
+    value="amd"
+    checked={props.gpuFilterArr.includes("amd")}
+    onChange={props.updateGpu}
+  />
+  AMD
+</div>
+
+<button
+  type="button"
+  className="btn btn-primary p-3"
+  onClick={props.updateSearch}
+>
+  Search and Filter
+</button>
 </div>

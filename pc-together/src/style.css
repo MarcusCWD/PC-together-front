@@ -1,8 +1,7 @@
-
 .notice-color {
-    background-color: #3c3c3c;
-    color: #fff;
-  }
+  background-color: #3c3c3c;
+  color: #fff;
+}
 
 .image {
   height: 200px;
@@ -14,7 +13,7 @@
   height: 80px;
 }
 .image-individual-img {
-  height:600px;
+  height: 600px;
   background-size: cover;
   background-position: center;
 }
@@ -24,15 +23,15 @@
 }
 
 .fixed-height-card {
-  height: 50px
+  height: 50px;
 }
 
 .upvote-image-size {
-  height: 20px
+  height: 20px;
 }
 
 .upvote-font-size {
-  font-size: 12px
+  font-size: 12px;
 }
 
 .filter-bg {
@@ -43,9 +42,9 @@
   border: 0.8px solid #131313;
 }
 .card-width {
-  width: 180px
+  width: 180px;
 }
-.edit-part{
+.edit-part {
   margin-top: 200px;
 }
 
@@ -73,11 +72,11 @@ otherwise content at the bottom is always faded out */
 
   /* The content mask is a linear gradient from top to bottom */
   --mask-image-content: linear-gradient(
-      to bottom,
-      transparent,
-      black var(--mask-height),
-      black calc(100% - var(--mask-height)),
-      transparent
+    to bottom,
+    transparent,
+    black var(--mask-height),
+    black calc(100% - var(--mask-height)),
+    transparent
   );
 
   /* Here we scale the content gradient to the width of the container 
@@ -111,48 +110,40 @@ scroll gradient in the top right */
    
 } */
 
-.drop-down-width{
-  width:250px
+.drop-down-width {
+  width: 250px;
 }
-.drop-down-label-width{
-  width: 180px
+.drop-down-label-width {
+  width: 180px;
 }
 a.nostyle {
   text-decoration: inherit;
   color: inherit;
-
 }
 a.nostyle {
   text-decoration: inherit;
 }
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
+.valid-input-red {
+  color: red;
 }
 
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+@media screen and (max-width: 576px) {
+  .remove-when-md {
+    display: none;
+  }
 }
-
-
-
-
+@media screen and (min-width: 576px) {
+  .show-when-md {
+    display: none;
+  }
+}
 
 .card-listing {
   max-width: 250px;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .card-listing {
-   
     max-width: 300px;
   }
 }

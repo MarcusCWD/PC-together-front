@@ -86,6 +86,7 @@ export default function NewBuild(props) {
                 onChange={props.updateFormField}
                 className="drop-down-width"
               />
+              <div className="valid-input-red">{props.validBuildName}</div>
             </div>
             <div className="p-2">
               <label className="drop-down-label-width">
@@ -98,6 +99,7 @@ export default function NewBuild(props) {
                 onChange={props.updateFormField}
                 className="drop-down-width"
               />
+              <div className="valid-input-red">{props.validBuildURL}</div>
             </div>
             <div className="p-2">
               <label className="drop-down-label-width">
@@ -110,6 +112,7 @@ export default function NewBuild(props) {
                 onChange={props.updateFormField}
                 className="drop-down-width"
               />
+              <div className="valid-input-red">{props.validBuildEmail}</div>
             </div>
             <div className="p-2">
               <label className="drop-down-label-width">Build Ease Rating</label>
@@ -142,6 +145,7 @@ export default function NewBuild(props) {
                 className="drop-down-width"
                 rows="4"
               />
+              <div className="valid-input-red">{props.validBuildDescription}</div>
             </div>
             <button
               type="button"

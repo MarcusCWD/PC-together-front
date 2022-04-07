@@ -6,9 +6,7 @@ import Individual from "./Individual";
 import NewBuild from "./NewBuild";
 import EditBuild from "./EditBuild";
 
-const BASE_URL =
-  "https://3000-marcuscwd-pctogether-ttdq0bbnux0.ws-us38.gitpod.io";
-// "https://pc-together.herokuapp.com/"
+const BASE_URL ="https://pc-together.herokuapp.com"
 
 class App extends React.Component {
   // begin state
@@ -34,6 +32,14 @@ class App extends React.Component {
     commentEmail: "",
     commentName: "",
     creatorEmail: "",
+    validName: "",
+    validEmail: "",
+    validComment: "",
+    validEditEmail: "",
+    validBuildName: "",
+    validBuildURL: "",
+    validBuildEmail: "",
+    validBuildDescription: "",
   };
   // end state
 
@@ -151,46 +157,110 @@ class App extends React.Component {
     return ramOptions;
   };
   submitBuild = async () => {
-    let submitBuildResponse = await axios.post(BASE_URL + "/newbuild", {
-      name: this.state.buildName,
-      build_ease: this.state.buildRate,
-      image: this.state.buildURL,
-      description: this.state.buildDescription,
-      email: this.state.buildEmail,
+    if (!this.state.buildName || this.state.buildName.length < 10) {
+      this.setState({
+        validBuildName:
+          "Please enter valid build name that has more than 10 characters",
+      });
+    }
+    if (
+      !this.state.buildURL ||
+      (!this.state.buildURL.includes(".com") &&
+        (!this.state.buildURL.includes(".jpg") ||
+          !this.state.buildURL.includes(".png") ||
+          !this.state.buildURL.includes(".gif") ||
+          !this.state.buildURL.includes(".jpeg") ||
+          !this.state.buildURL.includes(".svg") ||
+          !this.state.buildURL.includes(".webp") ||
+          !this.state.buildURL.includes(".bmp")))
+    ) {
+      this.setState({
+        validBuildURL: "Please enter valid image URL",
+      });
+    }
+    if (
+      !this.state.buildEmail ||
+      !this.state.buildEmail.includes("@") ||
+      !this.state.buildEmail.includes(".com")
+    ) {
+      this.setState({
+        validBuildEmail: "Please enter valid email address",
+      });
+    }
+    if (
+      !this.state.buildDescription ||
+      this.state.buildDescription.length < 10
+    ) {
+      this.setState({
+        validBuildDescription:
+          "Please enter valid build description that has more than 10 characters",
+      });
+    } else {
+      let submitBuildResponse = await axios.post(BASE_URL + "/newbuild", {
+        name: this.state.buildName,
+        build_ease: this.state.buildRate,
+        image: this.state.buildURL,
+        description: this.state.buildDescription,
+        email: this.state.buildEmail,
 
-      cpu: this.state.trackCpu,
-      gpu: this.state.trackGpu,
-      mobo: this.state.trackMobo,
-      ram: this.state.trackRam,
-    });
-    let buildRequest = axios.get(BASE_URL + "/build");
-    let buildResponse = await buildRequest;
-    this.setState({
-      buildList: buildResponse.data,
-      pageTracker: "main",
-    });
+        cpu: this.state.trackCpu,
+        gpu: this.state.trackGpu,
+        mobo: this.state.trackMobo,
+        ram: this.state.trackRam,
+      });
+      let buildRequest = axios.get(BASE_URL + "/build");
+      let buildResponse = await buildRequest;
+      this.setState({
+        buildList: buildResponse.data,
+        pageTracker: "main",
+      });
+    }
   };
 
   submitComment = async () => {
-    let locationId = this.state.individualList.mainList[0]._id;
-    let submitComment = await axios.post(
-      BASE_URL + "/" + locationId + "/comment",
-      {
-        name: this.state.commentName,
-        comment: this.state.commentComment,
-        email: this.state.commentEmail,
-      }
-    );
-    let individualRequest = axios.get(
-      BASE_URL + "/" + locationId + "/individualbuild"
-    );
-    let individualResponse = await individualRequest;
-    this.setState({
-      individualList: individualResponse.data,
-      commentName: "",
-      commentComment: "",
-      commentEmail: "",
-    });
+    if (!this.state.commentName) {
+      this.setState({
+        validName: "Please enter name",
+      });
+    }
+    if (
+      !this.state.commentEmail ||
+      !this.state.commentEmail.includes("@") ||
+      !this.state.commentEmail.includes(".com")
+    ) {
+      this.setState({
+        validEmail: "Please enter valid email",
+      });
+    }
+    if (!this.state.commentComment || this.state.commentComment < 10) {
+      this.setState({
+        validComment:
+          "Please enter valid comment that has more than 10 characters",
+      });
+    } else {
+      let locationId = this.state.individualList.mainList[0]._id;
+      let submitComment = await axios.post(
+        BASE_URL + "/" + locationId + "/comment",
+        {
+          name: this.state.commentName,
+          comment: this.state.commentComment,
+          email: this.state.commentEmail,
+        }
+      );
+      let individualRequest = axios.get(
+        BASE_URL + "/" + locationId + "/individualbuild"
+      );
+      let individualResponse = await individualRequest;
+      this.setState({
+        individualList: individualResponse.data,
+        commentName: "",
+        commentComment: "",
+        commentEmail: "",
+        validName: "",
+        validEmail: "",
+        validComment: "",
+      });
+    }
   };
   submitEditEmail = async () => {
     let locationId = this.state.individualList.mainList[0]._id;
@@ -199,11 +269,17 @@ class App extends React.Component {
       BASE_URL + "/" + locationId + "/" + email + "/email"
     );
     let emailData = emailResponse.data;
+    if (emailData.email_check == false) {
+      this.setState({
+        validEditEmail: "Creator's email has been entered wrongly!",
+      });
+    }
     if (emailData.email_check == true) {
       let partRequest = axios.get(BASE_URL + "/newbuild");
       let partResponse = await partRequest;
       this.setState({
         pageTracker: "edit",
+        validEditEmail: "",
         newParts: partResponse.data,
         buildName: this.state.individualList.mainList[0].name,
         buildURL: this.state.individualList.mainList[0].image,
@@ -267,8 +343,8 @@ class App extends React.Component {
     let individualResponse = await individualRequest;
     this.setState({
       individualList: individualResponse.data,
-    })
-  }
+    });
+  };
   async componentDidMount() {
     console.log("COMPONENETDIDMOUNT");
     let buildRequest = axios.get(BASE_URL + "/build");
@@ -309,6 +385,10 @@ class App extends React.Component {
           submitEditEmail={this.submitEditEmail}
           creatorEmail={this.state.creatorEmail}
           upVote={this.upVote}
+          validName={this.state.validName}
+          validEmail={this.state.validEmail}
+          validComment={this.state.validComment}
+          validEditEmail={this.state.validEditEmail}
         />
       );
     } else if (this.state.pageTracker === "newbuild") {
@@ -329,6 +409,10 @@ class App extends React.Component {
           buildRate={this.state.buildRate}
           buildDescription={this.state.buildDescription}
           submitBuild={this.submitBuild}
+          validBuildName={this.state.validBuildName}
+          validBuildURL={this.state.validBuildURL}
+          validBuildEmail={this.state.validBuildEmail}
+          validBuildDescription={this.state.validBuildDescription}
         />
       );
     } else if (this.state.pageTracker === "edit") {

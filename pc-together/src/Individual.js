@@ -61,22 +61,12 @@ export default function Individual(props) {
                     className="nav-link active"
                     aria-current="page"
                     onClick={props.newBuild}
+                    href="#"
                   >
                     Submit New Build
                   </a>
                 </li>
               </ul>
-              <form className="d-flex">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
             </div>
           </div>
         </nav>
@@ -112,7 +102,7 @@ export default function Individual(props) {
               </div>
               {/* upvote and build ease */}
               <div className="row d-flex pt-4">
-                <a className="col-4" onClick={props.upVote}>
+                <a className="col-4 nostyle" href="#" onClick={props.upVote}>
                   <img
                     src="/images/arrow-up.png"
                     style={{ height: "50px" }}
@@ -221,6 +211,7 @@ export default function Individual(props) {
                       name="commentName"
                       onChange={props.updateFormField}
                     />
+                    <div className="valid-input-red">{props.validName}</div>
                     <div className="py-2"></div>
                     <input
                       type="text"
@@ -230,6 +221,7 @@ export default function Individual(props) {
                       name="commentEmail"
                       onChange={props.updateFormField}
                     />
+                    <div className="valid-input-red">{props.validEmail}</div>
                     <textarea
                       type="text"
                       className="form-control"
@@ -238,6 +230,7 @@ export default function Individual(props) {
                       name="commentComment"
                       onChange={props.updateFormField}
                     />
+                    <div className="valid-input-red">{props.validComment}</div>
                     <button
                       type="button"
                       className="btn btn-primary p-3 mt-3"
@@ -258,6 +251,7 @@ export default function Individual(props) {
                   name="creatorEmail"
                   onChange={props.updateFormField}
                 />
+                <div className="valid-input-red">{props.validEditEmail}</div>
                 <button
                   type="button"
                   className="btn btn-primary p-1 mt-3"

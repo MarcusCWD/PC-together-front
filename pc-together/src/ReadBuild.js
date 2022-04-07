@@ -38,10 +38,10 @@ export default function ReadBuild(props) {
                 {build.name}
               </h6>
               <p className="card-text">USD${build.price}</p>
-              <p className="card-text font-card m-0">
+              <p className="card-text font-card m-0 fixed-height-card">
                 {cpuItemObj.product_name}
               </p>
-              <p className="card-text font-card">{gpuItemObj.product_name}</p>
+              <p className="card-text font-card fixed-height-card">{gpuItemObj.product_name}</p>
               <hr></hr>
               <div className="d-flex justify-content-between">
                 <div>
