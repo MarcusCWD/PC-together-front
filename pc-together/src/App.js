@@ -5,8 +5,9 @@ import RenderMain from "./RenderMain";
 import Individual from "./Individual";
 import NewBuild from "./NewBuild";
 import EditBuild from "./EditBuild";
+import Filter from "./Filter";
 
-const BASE_URL ="https://pc-together.herokuapp.com"
+const BASE_URL = "https://pc-together.herokuapp.com";
 
 class App extends React.Component {
   // begin state
@@ -345,6 +346,31 @@ class App extends React.Component {
       individualList: individualResponse.data,
     });
   };
+  filterScreen = async () => {
+    this.setState({
+      pageTracker: "filter",
+    });
+  };
+  mainPage = async () => {
+    this.setState({
+      pageTracker: "main",
+    });
+  };
+  updateSearchFilter = async () => {
+    let queryString = {
+      params: {
+        cpu_brand_name: this.state.cpuFilterArr,
+        gpu_brand_name: this.state.gpuFilterArr,
+        price_search: this.state.priceRadio,
+      },
+    };
+    let searchRequest = axios.get(BASE_URL + "/filter", queryString);
+    let searchResponse = await searchRequest;
+    this.setState({
+      buildList: searchResponse.data,
+      pageTracker: "main"
+    });
+  };
   async componentDidMount() {
     console.log("COMPONENETDIDMOUNT");
     let buildRequest = axios.get(BASE_URL + "/build");
@@ -370,6 +396,7 @@ class App extends React.Component {
           updateFormField={this.updateFormField}
           updateFormFieldRadio={this.updateFormFieldRadio}
           newBuild={this.newBuild}
+          filterScreen={this.filterScreen}
         />
       );
     } else if (this.state.pageTracker === "individual") {
@@ -433,6 +460,20 @@ class App extends React.Component {
           buildDescription={this.state.buildDescription}
           editBuild={this.editBuild}
           deleteBuild={this.deleteBuild}
+        />
+      );
+    } else if (this.state.pageTracker === "filter") {
+      return (
+        <Filter
+          updateCpu={this.updateCpu}
+          updateGpu={this.updateGpu}
+          cpuFilterArr={this.state.cpuFilterArr}
+          gpuFilterArr={this.state.gpuFilterArr}
+          updateSearchFilter={this.updateSearchFilter}
+          priceRadio={this.state.priceRadio}
+          updateFormField={this.updateFormFieldRadio}
+          mainPage={this.mainPage}
+
         />
       );
     } else {

@@ -58,8 +58,14 @@ export default function RenderMain(props) {
             </div>
           </div>
         </nav>
-        {/* accordion filter in md */}
-        
+        {/* filter button in md screen size */}
+        <button
+          type="button"
+          className="btn btn-primary p-3 mt-3 show-when-md"
+          onClick={props.filterScreen}
+        >
+          Filter
+        </button>
         <div className="row">
           {/* filter col */}
           <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 remove-when-md p-4 filter-bg">
