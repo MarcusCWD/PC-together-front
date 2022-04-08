@@ -19,7 +19,7 @@ export default function EditBuild(props) {
 
       {/* <div className="row"> */}
       <div
-        className="display-6 text-center"
+        className="display-6 text-center text-light"
         style={{ backgroundColor: "#E26723", height: "80px" }}
       >
         Edit Build
@@ -133,7 +133,7 @@ export default function EditBuild(props) {
          
             <button
               type="button"
-              className="btn btn-primary p-3 m-3 "
+              className="btn btn-success p-3 m-3 "
               onClick={props.editBuild}
             >
               Submit Edited Build

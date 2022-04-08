@@ -82,7 +82,7 @@ export default function Individual(props) {
           </div>
           <div className="row d-flex justify-content-center">
             {/* image of the build */}
-            <div className="col-8">
+            <div className="col-12 col-md-8">
               <div
                 className="image-individual-img"
                 style={{
@@ -91,11 +91,11 @@ export default function Individual(props) {
               ></div>
             </div>
             {/* upvote, description*/}
-            <div className="col-4">
+            <div className="col-12 col-md-4">
               {/* description */}
               <div
                 className="p-3 masked-overflow"
-                style={{ height: "450px", overflow: "auto" }}
+                style={{ height: "300px", overflow: "auto" }}
               >
                 <div className="fs-5">Description</div>
                 <div>{props.individualList.mainList[0].description}</div>
@@ -129,70 +129,101 @@ export default function Individual(props) {
               </div>
             </div>
           </div>
-          {/* Parts used */}
-          <div style={{ backgroundColor: "#F8F9FA" }}>
-            <div className="display-6 py-3 mx-3 d-line d-flex">
-              Parts and prices
-            </div>
+          {/* start the card rotation of parts here */}
+          <section className="mt-5 text-dark edit-part">
+            <div className="display-6 m-3">Bundled cost: </div>
             <div className="fs-5 fw-bold m-3 d-line d-flex">
-              Bundled cost: USD {props.individualList.mainList[0].price}
+              USD {props.individualList.mainList[0].price}
             </div>
-            <div className="row mx-2 pt-5">
-              {/* CPU */}
-              <div className="col-3">
-                <div className="col ">
-                  <img
-                    src={props.individualList.cpuItem[0].image}
+
+            <div className="scrolling-wrapper row flex-row flex-nowrap flex-lg-wrap mt-4 mx-4 pb-2 pt-2 gap-3 gap-lg-4">
+              {/* <!--CARD ITEM 1--> */}
+              <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+                <div className="card-block">
+                  <div
                     className="image-individual-part"
-                    alt="cpu"
-                  />
-                  <p>{props.individualList.cpuItem[0].product_name}</p>
-                  <p>USD {props.individualList.cpuItem[0].price}</p>
+                    style={{
+                      backgroundImage: `url(${props.individualList.cpuItem[0].image})`,
+                    }}
+                  ></div>
+                  <p
+                    className="font-card fw-bold mt-2"
+                    style={{ lineHeight: "1.2" }}
+                  >
+                    {props.individualList.cpuItem[0].product_name}
+                  </p>
+                  <p className="font-card lh-sm">
+                    USD {props.individualList.cpuItem[0].price}
+                  </p>
                 </div>
               </div>
-              {/* GPU */}
-              <div className="col-3">
-                <div className="col ">
-                  <img
-                    src={props.individualList.gpuItem[0].image}
+
+              {/* <!--CARD ITEM 2--> */}
+              <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+                <div className="card-block">
+                  <div
                     className="image-individual-part"
-                    alt="gpu"
-                  />
-                  <p>{props.individualList.gpuItem[0].product_name}</p>
-                  <p>USD {props.individualList.gpuItem[0].price}</p>
+                    style={{
+                      backgroundImage: `url(${props.individualList.gpuItem[0].image})`,
+                    }}
+                  ></div>
+                  <p
+                    className="font-card fw-bold mt-2"
+                    style={{ lineHeight: "1.2" }}
+                  >
+                    {props.individualList.gpuItem[0].product_name}
+                  </p>
+                  <p className="font-card lh-sm">
+                    USD {props.individualList.gpuItem[0].price}
+                  </p>
                 </div>
               </div>
-              {/* MOBO */}
-              <div className="col-3">
-                <div className="col ">
-                  <img
-                    src={props.individualList.moboItem[0].image}
+
+              {/* <!--CARD ITEM 3--> */}
+              <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+                <div className="card-block">
+                  <div
                     className="image-individual-part"
-                    alt="motherboard"
-                  />
-                  <p>{props.individualList.moboItem[0].product_name}</p>
-                  <p>USD {props.individualList.moboItem[0].price}</p>
+                    style={{
+                      backgroundImage: `url(${props.individualList.moboItem[0].image})`,
+                    }}
+                  ></div>
+                  <p
+                    className="font-card fw-bold mt-2"
+                    style={{ lineHeight: "1.2" }}
+                  >
+                    {props.individualList.moboItem[0].product_name}
+                  </p>
+                  <p className="font-card lh-sm">
+                    USD {props.individualList.moboItem[0].price}
+                  </p>
                 </div>
               </div>
-              {/* ram */}
-              <div className="col-3">
-                <div className="col ">
-                  <img
-                    src={props.individualList.ramItem[0].image}
+
+              {/* <!--CARD ITEM 4--> */}
+              <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+                <div className="card-block">
+                  <div
                     className="image-individual-part"
-                    alt="ram"
-                  />
-                  <p>{props.individualList.ramItem[0].product_name}</p>
-                  <p>USD {props.individualList.ramItem[0].price}</p>
+                    style={{
+                      backgroundImage: `url(${props.individualList.ramItem[0].image})`,
+                    }}
+                  ></div>
+                  <p
+                    className="font-card fw-bold mt-2"
+                    style={{ lineHeight: "1.2" }}
+                  >
+                    {props.individualList.ramItem[0].product_name}
+                  </p>
+                  <p className="font-card lh-sm">
+                    USD {props.individualList.ramItem[0].price}
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
           {/* comments */}
-          <div
-            className="row d-flex justify-content-center"
-            style={{ backgroundColor: "#E26723" }}
-          >
+          <div className="row d-flex justify-content-center btn-off-main-color">
             <div className="col-10 py-5">
               <div
                 className="card shadow-0 border"
@@ -233,7 +264,7 @@ export default function Individual(props) {
                     <div className="valid-input-red">{props.validComment}</div>
                     <button
                       type="button"
-                      className="btn btn-primary p-3 mt-3"
+                      className="btn btn-main-color p-3 mt-3 text-light"
                       onClick={props.submitComment}
                     >
                       Submit comment
@@ -241,25 +272,29 @@ export default function Individual(props) {
                   </div>
                 </div>
               </div>
-              <div className="edit-part">
-                Need to edit listing? Enter Valid creator's email here.
-                <input
-                  type="text"
-                  className="form-control "
-                  placeholder="enter email..."
-                  value={props.creatorEmail}
-                  name="creatorEmail"
-                  onChange={props.updateFormField}
-                />
-                <div className="valid-input-red">{props.validEditEmail}</div>
-                <button
-                  type="button"
-                  className="btn btn-primary p-1 mt-3"
-                  onClick={props.submitEditEmail}
-                >
-                  Edit Build
-                </button>
-              </div>
+            </div>
+          </div>
+          {/* edit here */}
+          <div className="edit-part">
+            <div className="p-3">
+              Need to edit listing? Enter Valid creator's email here.
+              <input
+                type="text"
+                className="form-control"
+                placeholder="enter email..."
+                value={props.creatorEmail}
+                name="creatorEmail"
+                onChange={props.updateFormField}
+                style={{ width: "250px" }}
+              />
+              <div className="valid-input-red">{props.validEditEmail}</div>
+              <button
+                type="button"
+                className="btn btn-main-color p-1 mt-3 text-light"
+                onClick={props.submitEditEmail}
+              >
+                Edit Build
+              </button>
             </div>
           </div>
         </div>

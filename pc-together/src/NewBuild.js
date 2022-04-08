@@ -18,7 +18,7 @@ export default function NewBuild(props) {
       </nav>
       
       {/* <div className="row"> */}
-        <div className="display-6 text-center" style={{ backgroundColor: "#E26723", height:"80px" }}>Submit Build Form</div>
+        <div className="display-6 text-center text-light" style={{ backgroundColor: "#E26723", height:"80px" }}>Submit Build Form</div>
         {/* <div className="col-3"></div> */}
         <div style={{ backgroundColor:"#F8F9FA", width:"100%" }}>
           <div>
@@ -149,7 +149,7 @@ export default function NewBuild(props) {
             </div>
             <button
               type="button"
-              className="btn btn-primary p-3 m-3"
+              className="btn btn-main-color p-3 m-3"
               onClick={props.submitBuild}
             >
               Submit

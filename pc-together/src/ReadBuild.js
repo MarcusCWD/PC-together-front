@@ -23,18 +23,17 @@ export default function ReadBuild(props) {
       <React.Fragment>
         <div className="col-md-5 col-lg-4 col-xl-3">
           <a href="#"
-            className="card-listing card p-0 mb-2 mx-auto mx-md-0 nostyle"
+            className=" card p-0 mb-2 mx-auto mx-md-0 nostyle"
             onClick={() => {
               props.currentIndividual(build._id);
             }}
           >
-            {/* <img src={build.image} className="card-img-top image" alt="pc image"/> */}
             <div
               className="card-img-top image"
               style={{ backgroundImage: `url(${build.image})` }}
             ></div>
             <div className="card-body">
-              <h6 className="card-title fixed-height-card card-width">
+              <h6 className="card-title fixed-height-card "> 
                 {build.name}
               </h6>
               <p className="card-text">USD${build.price}</p>

@@ -471,7 +471,7 @@ class App extends React.Component {
           gpuFilterArr={this.state.gpuFilterArr}
           updateSearchFilter={this.updateSearchFilter}
           priceRadio={this.state.priceRadio}
-          updateFormField={this.updateFormFieldRadio}
+          updateFormFieldRadio={this.updateFormFieldRadio}
           mainPage={this.mainPage}
 
         />

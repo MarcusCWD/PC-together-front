@@ -10,14 +10,17 @@
 }
 
 .image-individual-part {
-  height: 80px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.3em;
+  border-radius: 0.2em;
 }
 .image-individual-img {
-  height: 600px;
+  height: 300px;
   background-size: cover;
   background-position: center;
 }
-
 .font-card {
   font-size: 12px;
 }
@@ -35,7 +38,7 @@
 }
 
 .filter-bg {
-  background-color: "#f0f2f5";
+  background-color: #f0f2f5;
 }
 
 .hr-color {
@@ -45,7 +48,7 @@
   width: 180px;
 }
 .edit-part {
-  margin-top: 200px;
+  background-color: #F0F2F5;
 }
 
 .masked-overflow {
@@ -102,13 +105,6 @@ scroll gradient in the top right */
   mask-repeat: no-repeat, no-repeat;
 }
 
-/* 
-@media only screen and (max-width: 992px) {
- .custom-sizing {
-   
- }
-   
-} */
 
 .drop-down-width {
   width: 250px;
@@ -132,18 +128,56 @@ a.nostyle {
     display: none;
   }
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 577px) {
   .show-when-md {
     display: none;
   }
+}
+@media screen and (min-width: 576px) and (max-width: 766px) {
+  .image-individual-img {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+  .image {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media screen and (min-width: 767px) {
+  .image-individual-img {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+.scrolling-wrapper {
+  overflow-x: auto;
+}
+
+.btn-main-color{
+  background-color: #E26723;
+}
+.btn-off-main-color{
+  background-color: #f88e55;
 }
 
 .card-listing {
   max-width: 250px;
 }
+.card-block {
+  height: 250px;
+  width: auto;
+  background-color: #fff;
+  border: none;
+  background-position: center;
+  background-size: cover;
+  transition: all 0.5s ease-in-out !important;
+}
 
 @media screen and (min-width: 768px) {
   .card-listing {
-    max-width: 300px;
+    max-width: 800px;
   }
 }

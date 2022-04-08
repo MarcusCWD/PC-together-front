@@ -1,119 +1,65 @@
-<div className="remove-when-md p-4 filter-bg">
-<div className="fs-4">Filter</div>
-<hr className="hr-color"></hr>
-<div className="filter-bg p-3">
-  <label className="form-label">Price Range</label>
-  {/* price from 500-999 */}
-  <div className="form-check">
-    <input
-      type="radio"
-      value={500}
-      name="priceRadio"
-      checked={props.priceRadio === "500"}
-      onClick={props.updateFormFieldRadio}
-      id="price500"
-      className="form-check-input"
-    />
-    <label className="form-check-label" for="price500">
-      500-999
-    </label>
-  </div>
-  {/* price from 1000-1499 */}
-  <div className="form-check">
-    <input
-      type="radio"
-      value={1000}
-      name="priceRadio"
-      checked={props.priceRadio === "1000"}
-      onClick={props.updateFormFieldRadio}
-      id="price1000"
-      className="form-check-input"
-    />
-    <label className="form-check-label" for="price1000">
-      1000-1499
-    </label>
-  </div>
-  {/* price from 1500-1999 */}
-  <div className="form-check">
-    <input
-      type="radio"
-      value={1500}
-      name="priceRadio"
-      checked={props.priceRadio === "1500"}
-      onClick={props.updateFormFieldRadio}
-      id="price1500"
-      className="form-check-input"
-    />
-    <label className="form-check-label" for="price1500">
-      1500-1999
-    </label>
-  </div>
-  {/* price from 2000 onwards */}
-  <div className="form-check">
-    <input
-      type="radio"
-      value={2000}
-      name="priceRadio"
-      checked={props.priceRadio === "2000"}
-      onClick={props.updateFormFieldRadio}
-      id="price1500"
-      className="form-check-input"
-    />
-    <label className="form-check-label" for="price2000">
-      2000
-    </label>
-  </div>
-</div>
-{/* CPU TYPE */}
-<div className="p-3">
-  <div className="form-label">CPU type</div>
-  <input
-    className="form-check-input m-1"
-    type="checkbox"
-    name="cpu"
-    value="amd"
-    checked={props.cpuFilterArr.includes("amd")}
-    onChange={props.updateCpu}
-  />
-  AMD
-  <input
-    className="form-check-input m-1"
-    type="checkbox"
-    name="cpu"
-    value="intel"
-    checked={props.cpuFilterArr.includes("intel")}
-    onChange={props.updateCpu}
-  />
-  Intel
-</div>
-{/* GPU TYPE */}
-<div className="p-3">
-  <div className="form-label">GPU type</div>
-  <input
-    className="form-check-input m-1"
-    type="checkbox"
-    name="gpu"
-    value="nvidia"
-    checked={props.gpuFilterArr.includes("nvidia")}
-    onChange={props.updateGpu}
-  />
-  Nvidia
-  <input
-    className="form-check-input m-1"
-    type="checkbox"
-    name="gpu"
-    value="amd"
-    checked={props.gpuFilterArr.includes("amd")}
-    onChange={props.updateGpu}
-  />
-  AMD
-</div>
 
-<button
-  type="button"
-  className="btn btn-primary p-3"
-  onClick={props.updateSearch}
->
-  Search and Filter
-</button>
-</div>
+    <section className="mt-5 mb-2 text-dark" >
+      <div className="display-4 p-3 mx-3">Featured Products</div>
+      
+      <div className="scrolling-wrapper row flex-row flex-nowrap flex-lg-wrap m-4 pb-2 pt-2 gap-3 gap-lg-4">
+        {/* <!--CARD ITEM 1--> */}
+        <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+          <div className="card-block">
+            <div
+              className="image"
+              style="
+                background-image: url(images/pepper.jpeg);
+              "
+            ></div>
+            <p className="fs-6 fw-bold mt-2" style="line-height: 1.2;">Fresh<br>Produce</p>
+            <p className="fs-7 lh-sm">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+        </div>
+
+        {/* <!--CARD ITEM 2--> */}
+        <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+          <div className="card-block">
+            <div
+              className="image"
+              style="background-image: url(images/raspberry.jpeg)"
+            ></div>
+            <p className="fs-6 fw-bold mt-2" style="line-height: 1.2";>Seasonal<br>Fruits</p>
+            <p className="fs-7 lh-sm">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+        </div>
+
+        {/* <!--CARD ITEM 3--> */}
+        <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+          <div className="card-block">
+            <div
+              className="image"
+              style="background-image: url(images/veg2.jpeg)"
+            ></div>
+            <p className="fs-6 fw-bold mt-2" style="line-height: 1.2">Organic<br>Vegetables</p>
+            <p className="fs-7 lh-sm">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+        </div>
+
+        {/* <!--CARD ITEM 4--> */}
+        <div className="col-7 col-md-3 col-lg-2 shadow-sm p-3 mb-4 bg-body rounded">
+          <div className="card-block">
+            <div
+              className="image"
+              style="background-image: url(images/potato.jpeg)"
+            ></div>
+            <p className="fs-6 fw-bold mt-2" style="line-height: 1.2">Lorem<br>Ipsum</p>
+            <p className="fs-7 lh-sm">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </section>

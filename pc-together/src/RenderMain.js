@@ -44,28 +44,20 @@ export default function RenderMain(props) {
                   </a>
                 </li>
               </ul>
-              <form className="d-flex">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
             </div>
           </div>
         </nav>
         {/* filter button in md screen size */}
-        <button
-          type="button"
-          className="btn btn-primary p-3 mt-3 show-when-md"
-          onClick={props.filterScreen}
-        >
-          Filter
-        </button>
+        <div className="d-flex justify-content-around">
+          <button
+            type="button"
+            className="btn btn-main-color p-3 mt-3 show-when-md text-light"
+            onClick={props.filterScreen}
+          >
+            Filter
+          </button>
+        </div>
+
         <div className="row">
           {/* filter col */}
           <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 remove-when-md p-4 filter-bg">
@@ -181,16 +173,23 @@ export default function RenderMain(props) {
 
             <button
               type="button"
-              className="btn btn-primary p-3"
+              className="btn btn-main-color p-3 m-3 text-light"
               onClick={props.updateSearch}
             >
-              Search and Filter
+              Filter and search
             </button>
+            <a
+              type="button"
+              className="btn btn-off-main-color p-3 m-3 text-light"
+              href="index.html"
+            >
+              Reset filter
+            </a>
           </div>
 
           {/* main card listings */}
           <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-9 ">
-            <div className="row g-2 custom-sizing">
+            <div className="row g-2 custom-sizing p-2">
               <ReadBuild
                 data={props.data}
                 currentIndividual={props.currentIndividual}
