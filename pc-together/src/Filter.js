@@ -2,7 +2,7 @@ import React from "react";
 export default function Filter(props) {
   return (
     <React.Fragment>
-      <div className="p-4">
+      <div className="p-4" style={{backgroundColor: "#F8F9FA"}}>
         <div className="d-flex flex-row-reverse">
           <a onClick={props.mainPage} href="#" className="nostyle">
             <i class="fas fa-light fa-x" style={{ color: "#E26723" }}></i>

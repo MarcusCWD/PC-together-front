@@ -124,12 +124,17 @@ a.nostyle {
 }
 
 @media screen and (max-width: 576px) {
-  .remove-when-md {
+  .remove-when-sm {
     display: none;
   }
 }
 @media screen and (min-width: 577px) {
-  .show-when-md {
+  .show-when-sm {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .remove-when-md {
     display: none;
   }
 }

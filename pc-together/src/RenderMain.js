@@ -51,7 +51,7 @@ export default function RenderMain(props) {
         <div className="d-flex justify-content-around">
           <button
             type="button"
-            className="btn btn-main-color p-3 mt-3 show-when-md text-light"
+            className="btn btn-main-color p-3 mt-3 show-when-sm text-light"
             onClick={props.filterScreen}
           >
             Filter
@@ -60,7 +60,7 @@ export default function RenderMain(props) {
 
         <div className="row">
           {/* filter col */}
-          <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 remove-when-md p-4 filter-bg">
+          <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 remove-when-sm p-4 filter-bg">
             <div className="fs-4">Filter</div>
             <hr className="hr-color"></hr>
             <div className="filter-bg p-3">

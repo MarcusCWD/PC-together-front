@@ -130,8 +130,8 @@ export default function Individual(props) {
             </div>
           </div>
           {/* start the card rotation of parts here */}
-          <section className="mt-5 text-dark edit-part">
-            <div className="display-6 m-3">Bundled cost: </div>
+          <section className="text-dark edit-part">
+            <div className="display-6 mb-3 mx-3 pt-3">Bundled cost: </div>
             <div className="fs-5 fw-bold m-3 d-line d-flex">
               USD {props.individualList.mainList[0].price}
             </div>
