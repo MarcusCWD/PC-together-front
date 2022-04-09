@@ -1,240 +1,241 @@
 .notice-color {
-  background-color: #3c3c3c;
-  color: #fff;
-}
-
-.image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-
-.image-individual-part {
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0.3em;
-  border-radius: 0.2em;
-}
-.image-individual-img {
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-}
-.font-card {
-  font-size: 12px;
-}
-
-.fixed-height-card {
-  height: 50px;
-}
-
-.upvote-image-size {
-  height: 20px;
-}
-
-.upvote-font-size {
-  font-size: 12px;
-}
-
-.filter-bg {
-  background-color: #f0f2f5;
-}
-
-.hr-color {
-  border: 0.8px solid #131313;
-}
-.card-width {
-  width: 180px;
-}
-.edit-part {
-  background-color: #f0f2f5;
-}
-
-.masked-overflow {
-  /* scroll bar width, for use in mask calculations */
-  --scrollbar-width: 8px;
-
-  /* mask fade distance, for use in mask calculations */
-  --mask-height: 32px;
-
-  /* If content exceeds height of container, overflow! */
-  overflow-y: auto;
-
-  /* Our height limit */
-  height: 300px;
-
-  /* Need to make sure container has bottom space,
-otherwise content at the bottom is always faded out */
-  padding-bottom: var(--mask-height);
-
-  /* Keep some space between content and scrollbar */
-  padding-right: 20px;
-
-  /* The CSS mask */
-
-  /* The content mask is a linear gradient from top to bottom */
-  --mask-image-content: linear-gradient(
-    to bottom,
-    transparent,
-    black var(--mask-height),
-    black calc(100% - var(--mask-height)),
-    transparent
-  );
-
-  /* Here we scale the content gradient to the width of the container 
-minus the scrollbar width. The height is the full container height */
-  --mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
-
-  /* The scrollbar mask is a black pixel */
-  --mask-image-scrollbar: linear-gradient(black, black);
-
-  /* The width of our black pixel is the width of the scrollbar.
-The height is the full container height */
-  --mask-size-scrollbar: var(--scrollbar-width) 100%;
-
-  /* Apply the mask image and mask size variables */
-  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
-  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
-
-  /* Position the content gradient in the top left, and the 
-scroll gradient in the top right */
-  mask-position: 0 0, 100% 0;
-
-  /* We don't repeat our mask images */
-  mask-repeat: no-repeat, no-repeat;
-}
-
-.drop-down-width {
-  width: 250px;
-}
-.drop-down-label-width {
-  width: 180px;
-}
-a.nostyle {
-  text-decoration: inherit;
-  color: inherit;
-}
-a.nostyle {
-  text-decoration: inherit;
-}
-.valid-input-red {
-  color: red;
-}
-
-@media screen and (max-width: 576px) {
-  .remove-when-sm {
-    display: none !important;
+    background-color: #3c3c3c;
+    color: #fff;
   }
-}
-@media screen and (min-width: 577px) {
-  .show-when-sm {
-    display: none !important;
-  }
-}
-@media screen and (max-width: 768px) {
-  .remove-when-md {
-    display: none;
-  }
-}
-@media screen and (min-width: 576px) and (max-width: 766px) {
-  .image-individual-img {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-  }
+  
   .image {
-    height: 350px;
+    height: 200px;
     background-size: cover;
     background-position: center;
   }
-}
-@media screen and (min-width: 767px) {
+  
+  .image-individual-part {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.3em;
+    border-radius: 0.2em;
+  }
   .image-individual-img {
-    height: 500px;
+    height: 300px;
     background-size: cover;
     background-position: center;
   }
-}
-.scrolling-wrapper {
-  overflow-x: auto;
-}
-
-.comments-color {
-  background-color: #fff5f0;
-}
-
-.card-listing {
-  max-width: 250px;
-}
-
-a.button1 {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #df580f;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  transition: all 0.2s;
-  border-radius: 5px;
-  background-color: #e26723;
-}
-a.button1:hover {
-  color: #000000;
-  background-color: #c2571e;
-}
-a.button2 {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ca5c25;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  transition: all 0.2s;
-  border-radius: 5px;
-  background-color: #c56d40;
-}
-a.button2:hover {
-  color: #000000;
-  background-color: rgb(156, 103, 76);
-}
-.card-block {
-  height: 250px;
-  width: auto;
-  background-color: #fff;
-  border: none;
-  background-position: center;
-  background-size: cover;
-  transition: all 0.5s ease-in-out !important;
-}
-
-@media screen and (min-width: 768px) {
-  .card-listing {
-    max-width: 800px;
+  .font-card {
+    font-size: 12px;
   }
-}
-
-/* FOR INVISIBLE SCROLL BAR */
-::-webkit-scrollbar {
-  width: 4px;               
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;        
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: transparent;   
-  border-radius: 10px;       
-  border: 5px solid transparent; 
-}
+  
+  .fixed-height-card {
+    height: 50px;
+  }
+  
+  .upvote-image-size {
+    height: 20px;
+  }
+  
+  .upvote-font-size {
+    font-size: 12px;
+  }
+  
+  .filter-bg {
+    background-color: #f0f2f5;
+  }
+  
+  .hr-color {
+    border: 0.8px solid #131313;
+  }
+  .card-width {
+    width: 180px;
+  }
+  .edit-part {
+    background-color: #f0f2f5;
+  }
+  
+  .masked-overflow {
+    /* scroll bar width, for use in mask calculations */
+    --scrollbar-width: 8px;
+  
+    /* mask fade distance, for use in mask calculations */
+    --mask-height: 32px;
+  
+    /* If content exceeds height of container, overflow! */
+    overflow-y: auto;
+  
+    /* Our height limit */
+    height: 300px;
+  
+    /* Need to make sure container has bottom space,
+  otherwise content at the bottom is always faded out */
+    padding-bottom: var(--mask-height);
+  
+    /* Keep some space between content and scrollbar */
+    padding-right: 20px;
+  
+    /* The CSS mask */
+  
+    /* The content mask is a linear gradient from top to bottom */
+    --mask-image-content: linear-gradient(
+      to bottom,
+      transparent,
+      black var(--mask-height),
+      black calc(100% - var(--mask-height)),
+      transparent
+    );
+  
+    /* Here we scale the content gradient to the width of the container 
+  minus the scrollbar width. The height is the full container height */
+    --mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
+  
+    /* The scrollbar mask is a black pixel */
+    --mask-image-scrollbar: linear-gradient(black, black);
+  
+    /* The width of our black pixel is the width of the scrollbar.
+  The height is the full container height */
+    --mask-size-scrollbar: var(--scrollbar-width) 100%;
+  
+    /* Apply the mask image and mask size variables */
+    mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+    mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+  
+    /* Position the content gradient in the top left, and the 
+  scroll gradient in the top right */
+    mask-position: 0 0, 100% 0;
+  
+    /* We don't repeat our mask images */
+    mask-repeat: no-repeat, no-repeat;
+  }
+  
+  .drop-down-width {
+    width: 250px;
+  }
+  .drop-down-label-width {
+    width: 180px;
+  }
+  a.nostyle {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  a.nostyle {
+    text-decoration: inherit;
+  }
+  .valid-input-red {
+    color: red;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .remove-when-sm {
+      display: none !important;
+    }
+  }
+  @media screen and (min-width: 577px) {
+    .show-when-sm {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .remove-when-md {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 576px) and (max-width: 766px) {
+    .image-individual-img {
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+    .image {
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  @media screen and (min-width: 767px) {
+    .image-individual-img {
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .scrolling-wrapper {
+    overflow-x: auto;
+  }
+  
+  .comments-color {
+    background-color: #fff5f0;
+  }
+  
+  .card-listing {
+    max-width: 250px;
+  }
+  
+  a.button1 {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #df580f;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    border-radius: 5px;
+    background-color: #e26723;
+  }
+  a.button1:hover {
+    color: #000000;
+    background-color: #c2571e;
+  }
+  a.button2 {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #ca5c25;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    border-radius: 5px;
+    background-color: #c56d40;
+  }
+  a.button2:hover {
+    color: #000000;
+    background-color: rgb(156, 103, 76);
+  }
+  .card-block {
+    height: 250px;
+    width: auto;
+    background-color: #fff;
+    border: none;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.5s ease-in-out !important;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .card-listing {
+      max-width: 800px;
+    }
+  }
+  
+  /* FOR INVISIBLE SCROLL BAR */
+  ::-webkit-scrollbar {
+    width: 4px;               
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;        
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;   
+    border-radius: 10px;       
+    border: 5px solid transparent; 
+  }
+  
