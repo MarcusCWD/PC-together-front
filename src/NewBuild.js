@@ -171,8 +171,9 @@ export default function NewBuild(props) {
             <div
               className="image-individual-img "
               style={{
-                backgroundImage: `url(https://i.pcmag.com/imagery/articles/06LiQJzDE1OdJcUdbgqwz1X-15.v_1569470572.jpg )`,
+                backgroundImage: `url(https://cdna.pcpartpicker.com/static/forever/images/userbuild/391126.dde9dde75fd64610782a70ad0fcbea06.1600.jpg)`,
                 borderRadius: "5px",
+                height:"800px"
               }}
             ></div>
           </div>

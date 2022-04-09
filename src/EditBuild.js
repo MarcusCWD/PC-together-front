@@ -158,6 +158,7 @@ export default function EditBuild(props) {
               style={{
                 backgroundImage: `url(https://i.pcmag.com/imagery/articles/06LiQJzDE1OdJcUdbgqwz1X-15.v_1569470572.jpg )`,
                 borderRadius: "5px",
+                height:"800px"
               }}
             ></div>
           </div>
