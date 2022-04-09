@@ -158,13 +158,13 @@ export default function NewBuild(props) {
                   {props.validBuildDescription}
                 </div>
               </div>
-              <button
+              <a
                 type="button"
-                className="btn btn-main-color p-3 m-3 text-light"
+                className="button1 p-3 m-3 text-light"
                 onClick={props.submitBuild}
               >
                 Submit
-              </button>
+              </a>
             </div>
           </div>
           <div className="col-7 remove-when-md">

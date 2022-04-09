@@ -49,13 +49,13 @@ export default function RenderMain(props) {
         </nav>
         {/* filter button in md screen size */}
         <div className="d-flex justify-content-around">
-          <button
+          <a
             type="button"
-            className="btn btn-main-color p-3 mt-3 show-when-sm text-light"
+            className="button1 p-3 mt-3 show-when-sm text-light"
             onClick={props.filterScreen}
           >
             Filter
-          </button>
+          </a>
         </div>
 
         <div className="row">
@@ -118,7 +118,7 @@ export default function RenderMain(props) {
                   name="priceRadio"
                   checked={props.priceRadio === "2000"}
                   onClick={props.updateFormFieldRadio}
-                  id="price1500"
+                  id="price2000"
                   className="form-check-input"
                 />
                 <label className="form-check-label" for="price2000">
@@ -171,16 +171,16 @@ export default function RenderMain(props) {
               AMD
             </div>
 
-            <button
+            <a
               type="button"
-              className="btn btn-main-color p-3 m-3 text-light"
+              className="button1 p-3 m-3 text-light"
               onClick={props.updateSearch}
             >
               Filter and search
-            </button>
+            </a>
             <a
               type="button"
-              className="btn btn-off-main-color p-3 m-3 text-light"
+              className="button2 p-3 m-3 text-light"
               href="index.html"
             >
               Reset filter

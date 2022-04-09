@@ -101,7 +101,7 @@ export default function Individual(props) {
                 <div>{props.individualList.mainList[0].description}</div>
               </div>
               {/* upvote and build ease */}
-              <div className="row d-flex pt-4">
+              <div className="row d-flex pt-4 mx-2">
                 <a className="col-4 nostyle" href="#" onClick={props.upVote}>
                   <img
                     src="/images/arrow-up.png"
@@ -223,7 +223,7 @@ export default function Individual(props) {
             </div>
           </section>
           {/* comments */}
-          <div className="row d-flex justify-content-center btn-off-main-color">
+          <div className="row d-flex justify-content-center comments-color">
             <div className="col-10 py-5">
               <div
                 className="card shadow-0 border"
@@ -253,6 +253,7 @@ export default function Individual(props) {
                       onChange={props.updateFormField}
                     />
                     <div className="valid-input-red">{props.validEmail}</div>
+                    <div className="py-2"></div>
                     <textarea
                       type="text"
                       className="form-control"
@@ -260,15 +261,16 @@ export default function Individual(props) {
                       value={props.commentComment}
                       name="commentComment"
                       onChange={props.updateFormField}
+                      rows="4"
                     />
                     <div className="valid-input-red">{props.validComment}</div>
-                    <button
+                    <a
                       type="button"
-                      className="btn btn-main-color p-3 mt-3 text-light"
+                      className="button1 p-3 mt-3 text-light"
                       onClick={props.submitComment}
                     >
                       Submit comment
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -288,13 +290,13 @@ export default function Individual(props) {
                 style={{ width: "250px" }}
               />
               <div className="valid-input-red">{props.validEditEmail}</div>
-              <button
+              <a
                 type="button"
-                className="btn btn-main-color p-1 mt-3 text-light"
+                className="button1 p-1 mt-3 text-light"
                 onClick={props.submitEditEmail}
               >
                 Edit Build
-              </button>
+              </a>
             </div>
           </div>
         </div>

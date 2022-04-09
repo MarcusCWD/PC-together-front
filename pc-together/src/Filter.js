@@ -2,7 +2,7 @@ import React from "react";
 export default function Filter(props) {
   return (
     <React.Fragment>
-      <div className="p-4" style={{backgroundColor: "#F8F9FA"}}>
+      <div className="p-4">
         <div className="d-flex flex-row-reverse">
           <a onClick={props.mainPage} href="#" className="nostyle">
             <i class="fas fa-light fa-x" style={{ color: "#E26723" }}></i>
@@ -66,7 +66,7 @@ export default function Filter(props) {
               name="priceRadio"
               checked={props.priceRadio === "2000"}
               onClick={props.updateFormFieldRadio}
-              id="price1500"
+              id="price2000"
               className="form-check-input"
             />
             <label className="form-check-label" for="price2000">
@@ -119,17 +119,17 @@ export default function Filter(props) {
           AMD
         </div>
 
-        <button
+        <a
           type="button"
-          className="btn btn-main-color p-3 text-light"
+          className="button1 p-3 text-light"
           onClick={props.updateSearchFilter}
         >
           Search and Filter
-        </button>
+        </a>
         <div className="mt-2">
           <a
             type="button"
-            className="btn btn-off-main-color p-3 text-light"
+            className="button2 p-3 text-light"
             href="index.html"
           >
             Reset filter

@@ -48,7 +48,7 @@
   width: 180px;
 }
 .edit-part {
-  background-color: #F0F2F5;
+  background-color: #f0f2f5;
 }
 
 .masked-overflow {
@@ -105,7 +105,6 @@ scroll gradient in the top right */
   mask-repeat: no-repeat, no-repeat;
 }
 
-
 .drop-down-width {
   width: 250px;
 }
@@ -125,12 +124,12 @@ a.nostyle {
 
 @media screen and (max-width: 576px) {
   .remove-when-sm {
-    display: none;
+    display: none !important;
   }
 }
 @media screen and (min-width: 577px) {
   .show-when-sm {
-    display: none;
+    display: none !important;
   }
 }
 @media screen and (max-width: 768px) {
@@ -161,15 +160,53 @@ a.nostyle {
   overflow-x: auto;
 }
 
-.btn-main-color{
-  background-color: #E26723;
-}
-.btn-off-main-color{
-  background-color: #f88e55;
+.comments-color {
+  background-color: #fff5f0;
 }
 
 .card-listing {
   max-width: 250px;
+}
+
+a.button1 {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #df580f;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+  border-radius: 5px;
+  background-color: #e26723;
+}
+a.button1:hover {
+  color: #000000;
+  background-color: #c2571e;
+}
+a.button2 {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ca5c25;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+  border-radius: 5px;
+  background-color: #c56d40;
+}
+a.button2:hover {
+  color: #000000;
+  background-color: rgb(156, 103, 76);
 }
 .card-block {
   height: 250px;
@@ -185,4 +222,19 @@ a.nostyle {
   .card-listing {
     max-width: 800px;
   }
+}
+
+/* FOR INVISIBLE SCROLL BAR */
+::-webkit-scrollbar {
+  width: 4px;               
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;   
+  border-radius: 10px;       
+  border: 5px solid transparent; 
 }
