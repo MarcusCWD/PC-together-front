@@ -162,17 +162,7 @@ class App extends React.Component {
       this.setState({
         validBuildName:
           "Please enter valid build name that has more than 10 characters",
-          trackCpu: "",
-          trackGpu: "",
-          trackMobo: "",
-          trackRam: "",
-          buildName: "",
-          buildEmail: "",
-          buildURL: "",
-          buildRate: "",
-          buildDescription: "",
-      });
-    }
+    })
     if (
       !this.state.buildURL ||
       (!this.state.buildURL.includes(".com") &&
@@ -223,6 +213,15 @@ class App extends React.Component {
       this.setState({
         buildList: buildResponse.data,
         pageTracker: "main",
+        trackCpu: "",
+        trackGpu: "",
+        trackMobo: "",
+        trackRam: "",
+        buildName: "",
+        buildEmail: "",
+        buildURL: "",
+        buildRate: "",
+        buildDescription: "",
       });
     }
   };
