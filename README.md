@@ -100,7 +100,7 @@ Access the test cases [here](https://github.com/MarcusCWD/PC-together-front/blob
 
 ## Technologies Used
 * [React.JS](https://reactjs.org/)
-    * Front end framework used across the App
+    * Front end framework used across the web app
 * HTML5
     * To create the framework of the web app
 * CSS3
