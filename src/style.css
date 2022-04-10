@@ -151,11 +151,29 @@
   }
   @media screen and (min-width: 767px) {
     .image-individual-img {
-      height: 500px;
+      height: 800px !important;
       background-size: cover;
       background-position: center;
     }
   }
+  @media screen and (min-width: 1300px) {
+    .image-individual-part {
+      height: 280px !important;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0.3em;
+      border-radius: 0.2em;
+    }
+    .card-block {
+      height: 350px !important;
+      background-color: #fff;
+      border: none;
+      background-position: center;
+      background-size: cover;
+      transition: all 0.5s ease-in-out !important;
+    }
+  }
+
   .scrolling-wrapper {
     overflow-x: auto;
   }

@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# PC-Together 
+<img src='PC-Together.png' style='display:block'><br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Access the live demo of the website [here](https://ephemeral-sunshine-555075.netlify.app/index.html).
 
-## Available Scripts
+## Project Summary
 
-In the project directory, you can run:
+**Project Context**
 
-### `npm start`
+ _PC-Together_ is a mobile-responsive application developed for PC (personal computer) enthusiast and aspiring PC enthusiast to be able to share their builds, ideas and comments.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**User Goals**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The aim of users is to get recommendations and inspiration of PC builds while understanding the cost and details that consist of the build. With the infomation for every build, users are able to better gauge their preference while still considering the price of parts that is required for the build. 
 
-### `npm test`
+**Organisational Goals**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app aims to provide users with recommendations from paid avenues that promotes their hardware parts. Additionally, revenue through advertisements can be generated.
 
-### `npm run build`
+**Justification for the App**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+PC-Together aims to provide a community driven space where honesty of builds are paramount. This helps builders to identify any critical flaws with certaint hardware parts within the PC building industry.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## UX/UI
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Strategy**
+_User_
+* Objective: To showcase individual build and promote positive builds to the PC building community
 
-### `npm run eject`
+* Needs: Provide filters by price, brand and upvotes. Reviews from the public is import to encourage a healthy discussion on builds
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Demographics:
+    * Users can come from all walks of life but is targeted towards the younger populations where they are interested in technology
+    * Some users are presumed to be new towards the PC building hobby
+    * Sufficient literacy in using technological devices
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+User Stories | Acceptance Criteria(s)
+------------ | -------------
+As a pc enthusiast, i would like to view latest pc builds so as to keep in touch with the PC building community by looking at the latest technologies
+As a new PC builder, i would like to see the recommened builds by price so that i can make a informed decision on what i want for my PC build.
+As a pc enthusiast, i would like to know the updated prices of PC builds so that i can purchase the parts of the PC at a fair market value
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Scope**
 
-## Learn More
+_Functional Specifications_
+* Have a page which shows all the PC build as listings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Have a filter function based on price, CPU brand, GPU brand for all PC build listings
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Able to see details of a particular build, see the part prices
 
-### Code Splitting
+* To be able to interact with the community on the various builds
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* To be able to add in new builds to the system
 
-### Analyzing the Bundle Size
+* To be able to edit and delete builds (owner of particular build)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+_Non-functional requirements_
+* Mobile responsiveness
+    * Achieved via the use of appropriate media queries and flex box
 
-### Making a Progressive Web App
+### **Skeleton**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src='figma.png' style='display:block'><br>
 
-### Advanced Configuration
+### **Surface**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+_Colours_
 
-### Deployment
+<img src='color.png' style='display:block'><br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* The main color scheme of the app follows a orange hue with a basic white base. 
+To make the website vibrant, the color orange has been chosen for its main theme. A white base helps users to be able to read and see the contents of the builds better. This makes the listing of the build stand out because the submitted images of the pc builds are inherently colorful.
 
-### `npm run build` fails to minify
+_Font Choice_
+* The main font used for the contents is sans-serif. This font is used because it is a common font where most users are comfortable reading.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Features
+1. **Main page**. Users can scroll through all the listings that the database projects. In each card for the listing, it will show the name of the build, price of the build, CPU and GPU used.
+
+2. **Filter for price, CPU and GPU brand** This feature is used to narrow down the search results for the user. User can search in a various combination of price together with the brand of CPU and GPU.
+
+3. **Users can click on listing cards to see listing details** This feature helps declutter the main page from all the details in each listing. Therefore, if the user is interested in any builds, they can look further into the card.
+
+4. **Creator of the listing can delete or edit the computer build** Creators can access their listing by entering a valid email that was asked for before creating the build. This helps ensure that no one else besides the creator is able to delete or edit the build. 
+
+
+## Testing
+
+**Test Cases**
+
+Access the test cases [here](https://github.com/MarcusCWD/PC-together-front/blob/main/test-case/Test%20Case.pdf).
+
+**Testing for Mobile Responsiveness**
+ * Testing was done using chrome developer tool with variable width sizes from 330px to 1400px
+
+
+## Technologies Used
+
+* HTML5
+    * To create the framework of the web app
+* CSS3
+    * To style various elements throughout the web app
+* JavaScript
+    * To include interactive elements throughout the web app
+* [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+    * To create dropdown
+    * To create checkbox
+    * To create radio buttons
+    * To create Navbar
+    * To create Cards
+* [Font Awesome](https://fontawesome.com/)
+    * For icons for filter
+* [Flaticon](https://www.flaticon.com/)
+    * For used for main icon, vote and build ease
+* [Figma](https://www.figma.com/)
+    * To create the skeleton mock up
+* [Git](https://git-scm.com/)
+    * For version control
+* [GitHub](http://github.com)
+    * To create repository
+* [Netlify](https://www.netlify.com/)
+    * To deploy web app
+* [Heroku](https://dashboard.heroku.com/)
+    * To deploy backend API
+
+## Deployment
+
+The web app is hosted using Netlify.
+The back end API is hosted using Heroku.
+
+**Dependencies**
+
+* [Axios](https://cdnjs.com/libraries/axios)
+    * To call API
+* [Express JS](https://expressjs.com/)
+    * Used for backend
+* [MongoDB](https://www.mongodb.com/)
+    * Used for backend data CRUD operation
+
+## Backend API service link
+
+* [MongoDB](https://github.com/MarcusCWD/PC-together)
