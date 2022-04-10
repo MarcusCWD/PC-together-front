@@ -162,7 +162,8 @@ class App extends React.Component {
       this.setState({
         validBuildName:
           "Please enter valid build name that has more than 10 characters",
-    })
+      });
+    }
     if (
       !this.state.buildURL ||
       (!this.state.buildURL.includes(".com") &&
