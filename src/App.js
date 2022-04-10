@@ -321,6 +321,7 @@ class App extends React.Component {
     this.setState({
       buildList: buildResponse.data,
       pageTracker: "main",
+      creatorEmail: "",
     });
   };
   deleteBuild = async () => {
@@ -338,6 +339,7 @@ class App extends React.Component {
     this.setState({
       buildList: buildResponse.data,
       pageTracker: "main",
+      creatorEmail: "",
     });
   };
   upVote = async () => {
