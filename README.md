@@ -149,4 +149,4 @@ The back end API is hosted using Heroku.
 
 ## Backend API service link
 
-* [MongoDB](https://github.com/MarcusCWD/PC-together)
+* [PC-Together API](https://github.com/MarcusCWD/PC-together)
