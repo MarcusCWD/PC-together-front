@@ -123,7 +123,7 @@ export default function RenderMain(props) {
                   className="form-check-input"
                 />
                 <label className="form-check-label" for="price2000">
-                  2000
+                  2000 above
                 </label>
               </div>
             </div>
