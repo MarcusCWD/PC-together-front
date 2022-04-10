@@ -142,12 +142,7 @@ The back end API is hosted using Heroku.
     * Used for backend data CRUD operation
 
 
-## Deployment
-
-The web app is hosted using Netlify.
-The back end API is hosted using Heroku.
-
-**Credits**
+## Credits
 
 * Icons on the app
     * Downloaded and edited from [Flaticon](https://www.flaticon.com/)
