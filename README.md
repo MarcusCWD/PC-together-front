@@ -147,6 +147,8 @@ The back end API is hosted using Heroku.
 
 * Icons on the app
     * Downloaded and edited from [Flaticon](https://www.flaticon.com/)
+* Images and part reference
+    * Downloaded and edited from [PCpartPicker](https://pcpartpicker.com/)
 
 ## Backend API service link
 
