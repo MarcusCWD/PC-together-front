@@ -15,7 +15,7 @@ export default function RenderMain(props) {
               <img src="/images/pc-tower.png" style={{ width: "80px" }} />
             </a>
             <a className="navbar-brand" href="index.html">
-              PC-together
+              PC-Together
             </a>
             <button
               className="navbar-toggler"
@@ -177,14 +177,14 @@ export default function RenderMain(props) {
               className="button1 p-3 m-3 text-light"
               onClick={props.updateSearch}
             >
-              Filter and search
+              Filter and Search
             </a>
             <a
               type="button"
               className="button2 p-3 m-3 text-light"
               href="index.html"
             >
-              Reset filter
+              Reset Filter
             </a>
           </div>
 

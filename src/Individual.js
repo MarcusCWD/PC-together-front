@@ -38,7 +38,7 @@ export default function Individual(props) {
               <img src="/images/pc-tower.png" style={{ width: "80px" }} />
             </a>
             <a className="navbar-brand" href="index.html">
-              PC-together
+              PC-Together
             </a>
             <button
               className="navbar-toggler"
@@ -269,7 +269,7 @@ export default function Individual(props) {
                       className="button1 p-3 mt-3 text-light"
                       onClick={props.submitComment}
                     >
-                      Submit comment
+                      Submit Comment
                     </a>
                   </div>
                 </div>
