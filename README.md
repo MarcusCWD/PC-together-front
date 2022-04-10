@@ -64,6 +64,8 @@ _Non-functional requirements_
 
 <img src='public/images/figma.png' style='display:block'><br>
 
+Access the Figma skeleton framwork [here](https://www.figma.com/file/PVDzZc4kCaQB5cI72H7KrO/PC-Together).
+
 ### **Surface**
 
 _Colours_
