@@ -141,6 +141,17 @@ The back end API is hosted using Heroku.
 * [MongoDB](https://www.mongodb.com/)
     * Used for backend data CRUD operation
 
+
+## Deployment
+
+The web app is hosted using Netlify.
+The back end API is hosted using Heroku.
+
+**Credits**
+
+* Icons on the app
+    * Downloaded and edited from [Flaticon](https://www.flaticon.com/)
+
 ## Backend API service link
 
 * [MongoDB](https://github.com/MarcusCWD/PC-together)
