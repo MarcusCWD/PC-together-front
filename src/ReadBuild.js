@@ -36,7 +36,7 @@ export default function ReadBuild(props) {
               <h6 className="card-title fixed-height-card "> 
                 {build.name}
               </h6>
-              <p className="card-text">USD${build.price}</p>
+              <p className="card-text">USD${parseFloat(build.price)}</p>
               <p className="card-text font-card m-0 fixed-height-card">
                 {cpuItemObj.product_name}
               </p>
