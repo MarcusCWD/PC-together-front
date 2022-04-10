@@ -1,5 +1,5 @@
 # PC-Together 
-<img src='public/PC-Together.png' style='display:block'><br>
+<img src='public/images/PC-Together.png' style='display:block'><br>
 
 Access the live demo of the website [here](https://ephemeral-sunshine-555075.netlify.app/index.html).
 
@@ -37,9 +37,9 @@ _User_
 
 User Stories | Acceptance Criteria(s)
 ------------ | -------------
-As a pc enthusiast, i would like to view latest pc builds so as to keep in touch with the PC building community by looking at the latest technologies
-As a new PC builder, i would like to see the recommened builds by price so that i can make a informed decision on what i want for my PC build.
-As a pc enthusiast, i would like to know the updated prices of PC builds so that i can purchase the parts of the PC at a fair market value
+As a pc enthusiast, i would like to view latest pc builds so as to keep in touch with the PC building community by looking at the latest technologies. | Card listings from community that can be looked at in detail while having a comment page.
+As a new PC builder, i would like to see the recommened builds by price so that i can make a informed decision on what i want for my PC build. | Filter function for price.
+As a pc enthusiast, i would like to know the updated prices of PC builds so that i can purchase the parts of the PC at a fair market value. | Show the market price in details for each listing.
 
 ### **Scope**
 
@@ -62,13 +62,13 @@ _Non-functional requirements_
 
 ### **Skeleton**
 
-<img src='public/figma.png' style='display:block'><br>
+<img src='public/images/figma.png' style='display:block'><br>
 
 ### **Surface**
 
 _Colours_
 
-<img src='public/color.png' style='display:block'><br>
+<img src='public/images/color.png' style='display:block'><br>
 
 * The main color scheme of the app follows a orange hue with a basic white base. 
 To make the website vibrant, the color orange has been chosen for its main theme. A white base helps users to be able to read and see the contents of the builds better. This makes the listing of the build stand out because the submitted images of the pc builds are inherently colorful.
