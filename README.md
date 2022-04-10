@@ -1,5 +1,5 @@
 # PC-Together 
-<img src='PC-Together.png' style='display:block'><br>
+<img src='public/PC-Together.png' style='display:block'><br>
 
 Access the live demo of the website [here](https://ephemeral-sunshine-555075.netlify.app/index.html).
 
@@ -62,13 +62,13 @@ _Non-functional requirements_
 
 ### **Skeleton**
 
-<img src='figma.png' style='display:block'><br>
+<img src='public/figma.png' style='display:block'><br>
 
 ### **Surface**
 
 _Colours_
 
-<img src='color.png' style='display:block'><br>
+<img src='public/color.png' style='display:block'><br>
 
 * The main color scheme of the app follows a orange hue with a basic white base. 
 To make the website vibrant, the color orange has been chosen for its main theme. A white base helps users to be able to read and see the contents of the builds better. This makes the listing of the build stand out because the submitted images of the pc builds are inherently colorful.
